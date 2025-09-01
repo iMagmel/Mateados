@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #212842;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+
+
+}
+.volver-flecha {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  text-decoration: none;
+  color: #2a85ff;
+  font-size: 24px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.volver-flecha:hover {
+  color: #1a6fe0;
+}
+
+
+.form-recuperar {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  border: 2px solid transparent;
+  animation: brillar 2s ease-in-out infinite;
+  position: relative;
+}
+
+.form-recuperar h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-recuperar label {
+  display: block;
+  margin-top: 10px;
+}
+
+.form-recuperar input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+
+.form-recuperar input:focus {
+  outline: none;
+  border: 1px solid #2a85ff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.form-recuperar button {
+  margin-top: 20px;
+  width: 100%;
+  background: #2a85ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.form-recuperar button:hover {
+  background: #00446a;
+}
+.descripcion-recuperar {
+  font-size: 13px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.descripcion-final {
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+  margin-top: 15px;
+  line-height: 1.4;
+}
+
+
+/* Animación de brillo en bucle */
+@keyframes brillar {
+  0% {
+    box-shadow: 0 0 0px rgba(0, 123, 255, 0);
+    border: 2px solid transparent;
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.8);
+    border: 2px solid rgba(0, 123, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(0, 123, 255, 0);
+    border: 2px solid transparent;
+  }
+}
