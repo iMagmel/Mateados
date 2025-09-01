@@ -2,7 +2,7 @@
 
 class ConnectionBD{
     
-    public static function Conexion() {
+    public static function Connection() {
         $host = "localhost";
         $dbname = "DBMATEADOS";
         $username = "";
