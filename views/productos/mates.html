@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mateados</title>
+  
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="mates.css">
+</head>
+<body>
+  
+<header>
+  <div class="header-top">
+    <!-- Izquierda -->
+    <div class="left-icons">
+      <i class='bx bx-search'></i>
+    </div>
+
+    <!-- Centro -->
+    <div class="logo-title">
+      <h1>Mateados</h1>
+    </div>
+
+    <!-- Derecha -->
+    <div class="right-icons">
+      <div class="user-menu">
+        <i class='bx bx-user'></i>
+        <div class="dropdown">
+          <a href="#">Iniciar sesión</a>
+          <a href="#">Registrarme</a>
+        </div>
+      </div>
+      <i class='bx bx-cart'></i>
+      
+      <button class="menu-toggle" id="menu-toggle">
+        <i class='bx bx-menu'></i>
+      </button>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="mobile-nav-container" id="mobile-nav">
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Mates personalizados</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <nav class="desktop-nav">
+  <ul class="nav-list">
+    <li><a href="#">Inicio</a></li>
+    <li class="has-submenu">
+      <a href="#">Productos</a>
+      <ul class="submenu">
+        <li>
+          <a href="#">Mates</a>
+          <ul class="submenu-items">
+            <li><a href="#">Calabaza</a></li>
+            <li><a href="#">Imperial</a></li>
+            <li><a href="#">Torpedo</a></li>
+            <li><a href="#">Camionero</a></li>
+            <li><a href="#">Algarrobo</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Termos</a>
+          <ul class="submenu-items">
+            <li><a href="#">Metálico</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Yerba</a>
+          <ul class="submenu-items">
+            <li><a href="#">Sara</a></li>
+            <li><a href="#">Baldo</a></li>
+            <li><a href="#">Canarias</a></li>
+            <li><a href="#">Rei Verde</a></li>
+            <li><a href="#">Amanda</a></li>
+            <li><a href="#">Playadito</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Materas</a>
+          <ul class="submenu-items">
+            <li><a href="#">Cuero</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+</nav>
+
+</header>
+
+<main class="productos-container">
+  
+  <!-- CATEGORÍAS -->
+  <aside class="categorias">
+    <h2>Categorías</h2>
+    <ul>
+      <li><a href="#calabaza">Calabaza</a></li>
+      <li><a href="#imperial">Imperial</a></li>
+      <li><a href="#torpedo">Torpedo</a></li>
+      <li><a href="#camionero">Camionero</a></li>
+      <li><a href="#algarrobo">Algarrobo</a></li>
+    </ul>
+  </aside>
+
+  <section class="galeria">
+    
+    <!-- SECCIÓN CALABAZA -->
+<h2 id="calabaza">Mates Calabaza</h2>
+<div class="cards-container" id="calabaza-cards">
+  <div class="card">
+    <div class="slider">
+      <img src="img/calabaza1a.jpg" alt="">
+      <img src="img/calabaza1b.jpg" alt="">
+      <img src="img/calabaza1c.jpg" alt="">
+    </div>
+    <h3>Calabaza 1</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/calabaza2a.jpg" alt="">
+      <img src="img/calabaza2b.jpg" alt="">
+      <img src="img/calabaza2c.jpg" alt="">
+    </div>
+    <h3>Calabaza 2</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/calabaza3a.jpg" alt="">
+      <img src="img/calabaza3b.jpg" alt="">
+      <img src="img/calabaza3c.jpg" alt="">
+    </div>
+    <h3>Calabaza 3</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/calabaza4a.jpg" alt="">
+      <img src="img/calabaza4b.jpg" alt="">
+      <img src="img/calabaza4c.jpg" alt="">
+    </div>
+    <h3>Calabaza 4</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/calabaza5a.jpg" alt="">
+      <img src="img/calabaza5b.jpg" alt="">
+      <img src="img/calabaza5c.jpg" alt="">
+    </div>
+    <h3>Calabaza 5</h3>
+    <button>Ver más</button>
+  </div>
+</div>
+
+<div class="ver-mas-container">
+  <button id="btn-ver-mas-calabaza">Ver más productos</button>
+</div>
+<!-- SECCIÓN IMPERIAL -->
+<h2 id="imperial">Mates Imperial</h2>
+<div class="cards-container" id="imperial-cards">
+  <div class="card">
+    <div class="slider">
+      <img src="img/imperial1a.jpg" alt="">
+      <img src="img/imperial1b.jpg" alt="">
+      <img src="img/imperial1c.jpg" alt="">
+    </div>
+    <h3>Imperial 1</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/imperial1a.jpg" alt="">
+      <img src="img/imperial1b.jpg" alt="">
+      <img src="img/imperial1c.jpg" alt="">
+    </div>
+    <h3>Imperial 2</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/imperial1a.jpg" alt="">
+      <img src="img/imperial1b.jpg" alt="">
+      <img src="img/imperial1c.jpg" alt="">
+    </div>
+    <h3>Imperial 3</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/imperial1a.jpg" alt="">
+      <img src="img/imperial1b.jpg" alt="">
+      <img src="img/imperial1c.jpg" alt="">
+    </div>
+    <h3>Imperial 4</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/imperial1a.jpg" alt="">
+      <img src="img/imperial1b.jpg" alt="">
+      <img src="img/imperial1c.jpg" alt="">
+    </div>
+    <h3>Imperial 5</h3>
+    <button>Ver más</button>
+  </div>
+</div>
+<div class="ver-mas-container">
+  <button id="btn-ver-mas-imperial">Ver más productos</button>
+</div>
+
+<!-- SECCIÓN TORPEDO -->
+<h2 id="torpedo">Mates Torpedo</h2>
+<div class="cards-container" id="torpedo-cards">
+  <div class="card">
+    <div class="slider">
+      <img src="img/torpedo1a.jpg" alt="">
+      <img src="img/torpedo1b.jpg" alt="">
+      <img src="img/torpedo1c.jpg" alt="">
+    </div>
+    <h3>Torpedo 1</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/torpedo1a.jpg" alt="">
+      <img src="img/torpedo1b.jpg" alt="">
+      <img src="img/torpedo1c.jpg" alt="">
+    </div>
+    <h3>Torpedo 2</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/torpedo1a.jpg" alt="">
+      <img src="img/torpedo1b.jpg" alt="">
+      <img src="img/torpedo1c.jpg" alt="">
+    </div>
+    <h3>Torpedo 3</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/torpedo1a.jpg" alt="">
+      <img src="img/torpedo1b.jpg" alt="">
+      <img src="img/torpedo1c.jpg" alt="">
+    </div>
+    <h3>Torpedo 4</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/torpedo1a.jpg" alt="">
+      <img src="img/torpedo1b.jpg" alt="">
+      <img src="img/torpedo1c.jpg" alt="">
+    </div>
+    <h3>Torpedo 5</h3>
+    <button>Ver más</button>
+  </div>
+</div>
+<div class="ver-mas-container">
+  <button id="btn-ver-mas-torpedo">Ver más productos</button>
+</div>
+
+<!-- SECCIÓN CAMIONERO -->
+<h2 id="camionero">Mates Camionero</h2>
+<div class="cards-container" id="camionero-cards">
+  <div class="card">
+    <div class="slider">
+      <img src="img/camionero1a.jpg" alt="">
+      <img src="img/camionero1b.jpg" alt="">
+      <img src="img/camionero1c.jpg" alt="">
+    </div>
+    <h3>Camionero 1</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/camionero1a.jpg" alt="">
+      <img src="img/camionero1b.jpg" alt="">
+      <img src="img/camionero1c.jpg" alt="">
+    </div>
+    <h3>Camionero 2</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/camionero1a.jpg" alt="">
+      <img src="img/camionero1b.jpg" alt="">
+      <img src="img/camionero1c.jpg" alt="">
+    </div>
+    <h3>Camionero 3</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/camionero1a.jpg" alt="">
+      <img src="img/camionero1b.jpg" alt="">
+      <img src="img/camionero1c.jpg" alt="">
+    </div>
+    <h3>Camionero 4</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/camionero1a.jpg" alt="">
+      <img src="img/camionero1b.jpg" alt="">
+      <img src="img/camionero1c.jpg" alt="">
+    </div>
+    <h3>Camionero 5</h3>
+    <button>Ver más</button>
+  </div>
+</div>
+<div class="ver-mas-container">
+  <button id="btn-ver-mas-camionero">Ver más productos</button>
+</div>
+
+<!-- SECCIÓN ALGARROBO -->
+<h2 id="algarrobo">Mates Algarrobo</h2>
+<div class="cards-container" id="algarrobo-cards">
+  <div class="card">
+    <div class="slider">
+      <img src="img/algarrobo1a.jpg" alt="">
+      <img src="img/algarrobo1b.jpg" alt="">
+      <img src="img/algarrobo1c.jpg" alt="">
+    </div>
+    <h3>Algarrobo 1</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/algarrobo1a.jpg" alt="">
+      <img src="img/algarrobo1b.jpg" alt="">
+      <img src="img/algarrobo1c.jpg" alt="">
+    </div>
+    <h3>Algarrobo 2</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="img/algarrobo1a.jpg" alt="">
+      <img src="img/algarrobo1b.jpg" alt="">
+      <img src="img/algarrobo1c.jpg" alt="">
+    </div>
+    <h3>Algarrobo 3</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/algarrobo1a.jpg" alt="">
+      <img src="img/algarrobo1b.jpg" alt="">
+      <img src="img/algarrobo1c.jpg" alt="">
+    </div>
+    <h3>Algarrobo 4</h3>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="img/algarrobo1a.jpg" alt="">
+      <img src="img/algarrobo1b.jpg" alt="">
+      <img src="img/algarrobo1c.jpg" alt="">
+    </div>
+    <h3>Algarrobo 5</h3>
+    <button>Ver más</button>
+  </div>
+</div>
+<div class="ver-mas-container">
+  <button id="btn-ver-mas-algarrobo">Ver más productos</button>
+</div>
+
+
+
+  </section>
+</main>
+
+<script src="mates.js"></script>
+</body>
+</html>
