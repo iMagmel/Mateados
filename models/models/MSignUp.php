@@ -15,7 +15,7 @@ class MSignUp{
      $usuario, $contrasena, $id_rol) {
         try {
 
-            $sqlPais = "EXEC SP_ObtenerLocaliad ?";
+            $sqlPais = "EXEC SP_ObtenerLocalidad ?";
             $stmtPais = $this->conn->prepare($sqlPais);
             $stmtPais->execute([$id_localidad]);
             $rowPais = $stmtPais->fetch(PDO::FETCH_ASSOC);

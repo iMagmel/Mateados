@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="Login y Registro/css/style.css" />
+<link rel="stylesheet" href="../css/style.css" />
 
   <title>Registrarse | SkyWay</title>
 </head>
@@ -34,15 +34,6 @@
           </div>
 
           <div class="input-container">
-            <label for="sexo">Sexo</label>
-            <select name="sexo" id="sexo">
-              <option value="" disabled selected>Seleccione su sexo</option>
-              <option value="F">F</option>
-              <option value="M">M</option>
-            </select>
-          </div>
-
-          <div class="input-container">
             <label for="genero">Género</label>
        <select name="genero" id="genero" required>
   <option value="" disabled selected>Seleccione su género</option>
@@ -67,20 +58,6 @@
         <?php endforeach; ?>
       </select>
     </div>
-
-
-          <div class="input-container">
-            <label for="tipodoc">Tipo de documento</label>
-            <select name="tipodoc" id="tipodoc" required>
-      <option value="" disabled selected>Seleccione tipo de documento</option>
-      <?php foreach ($tiposDoc as $td): ?>
-        <option value="<?= htmlspecialchars($td['Id_TipoDoc']) ?>"
-          <?= (isset($_POST['tipodoc']) && $_POST['tipodoc'] == $td['Id_TipoDoc']) ? 'selected' : '' ?>>
-          <?= htmlspecialchars($td['TipoDoc']) ?>
-        </option>
-      <?php endforeach; ?>
-    </select>
-          </div>
 
           <div class="input-container">
             <label for="doc">Número de documento</label>
