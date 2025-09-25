@@ -2,18 +2,18 @@
 
 require_once __DIR__ . '/ConnectionBD.php';
 
-class MaltaProducto{
+class MbajaProducto{
     private $conn;
 
     public function __construct() {
         $this->conn = ConnectionBD::Connection();
     }
 
-    public function AgregarProducto($nombre, $categoria, $precio){
+    public function BorrarProducto($idproducto){
 
-        $sql = "EXEC SP_AltaProducto ?, ?, ?";
+        $sql = "EXEC SP_BajaProducto ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$nombre, $categoria, $precio]); 
+        $stmt->execute([$idproducto]); 
         return $stmt;
         
     }

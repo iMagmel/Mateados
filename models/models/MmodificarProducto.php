@@ -9,9 +9,9 @@ class MaltaProducto{
         $this->conn = ConnectionBD::Connection();
     }
 
-    public function AgregarProducto($nombre, $categoria, $precio){
+    public function ModificarProducto($nombre, $categoria, $precio){
 
-        $sql = "EXEC SP_AltaProducto ?, ?, ?";
+        $sql = "EXEC SP_ModificarProducto ?, ?, ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$nombre, $categoria, $precio]); 
         return $stmt;
