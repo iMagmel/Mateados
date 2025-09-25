@@ -4,7 +4,7 @@ class ConnectionBD{
     
     public static function Connection() {
         $host = "localhost";
-        $dbname = "DBMateados*";
+        $dbname = "DBMateados";
         $username = "";
         $password = "";
         $puerto = 1433;

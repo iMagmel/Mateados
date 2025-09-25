@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="styleAdmin.css">
+
+	<title>Admin Mateados</title>
+</head>
+<body>
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand"><span class="text">Mateados</span></a>
+		<ul class="side-menu top">
+			<li class="active"><a href="#"><i class='bx bxs-dashboard'></i><span class="text">Dashboard</span></a></li>
+			<li><a href="#"><i class='bx bxs-shopping-bag-alt'></i><span class="text">Mi Tienda</span></a></li>
+			<li><a href="#"><i class='bx bxs-user'></i><span class="text">Usuarios</span></a></li>
+		</ul>
+		<ul class="side-menu">
+			<li><a href="#" class="logout"><i class='bx bxs-log-out-circle'></i><span class="text">Logout</span></a></li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main id="main-content">
+
+			<!-- Dashboard -->
+			<section id="dashboard" class="section active">
+				<div class="head-title">
+					<div class="left">
+						<h1>Dashboard</h1>
+					</div>
+				</div>
+
+				<ul class="box-info">
+					<li><i class='bx bxs-dollar-circle'></i><span class="text"><h3>$0</h3><p>Ventas Totales</p></span></li>
+					<li><i class='bx bxs-shopping-bag-alt'></i><span class="text"><h3>0</h3><p>Pedidos</p></span></li>
+					<li><i class='bx bxs-group'></i><span class="text"><h3>0</h3><p>Usuarios</p></span></li>
+					<li><i class='bx bxs-package'></i><span class="text"><h3>0</h3><p>Stock</p></span></li>
+				</ul>
+
+				<div class="table-data">
+					<div class="order">
+						<div class="head"><h3>Pedidos Recientes</h3></div>
+						<table>
+							<thead>
+								<tr><th>Usuario</th><th>Fecha</th><th>Estado</th></tr>
+							</thead>
+							<tbody>
+								<tr><td>Juan Perez</td><td>01-09-2025</td><td><span class="status completed">Completado</span></td></tr>
+								<tr><td>Maria Lopez</td><td>02-09-2025</td><td><span class="status process">En Proceso</span></td></tr>
+								<tr><td>Carlos Ruiz</td><td>03-09-2025</td><td><span class="status pending">Pendiente</span></td></tr>
+								<tr><td>Ana Gomez</td><td>04-09-2025</td><td><span class="status completed">Completado</span></td></tr>
+								<tr><td>Luis Diaz</td><td>05-09-2025</td><td><span class="status pending">Pendiente</span></td></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+
+			<!-- Mi Tienda -->
+<section id="tienda" class="section">
+    <div class="head-title">
+        <div class="left">
+            <h1>Mi Tienda</h1>
+        </div>
+        <a href="#" class="btn-download">
+            <i class='bx bxs-plus-circle'></i>
+            <span class="text">Agregar Producto</span>
+        </a>
+    </div>
+
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Productos</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mate Tradicional</td>
+                        <td>$1000</td>
+                        <td>50</td>
+                        <td>Disponible</td>
+                        <td>
+                            <i class='bx bx-edit icon-btn' data-action="editar" data-item="Mate Tradicional"></i>
+                            <i class='bx bx-trash icon-btn' data-action="eliminar" data-item="Mate Tradicional"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mate Especial</td>
+                        <td>$1500</td>
+                        <td>20</td>
+                        <td>Disponible</td>
+                        <td>
+                            <i class='bx bx-edit icon-btn' data-action="editar" data-item="Mate Especial"></i>
+                            <i class='bx bx-trash icon-btn' data-action="eliminar" data-item="Mate Especial"></i>
+                        </td>
+                    </tr>
+                    <!-- Agrega más productos aquí -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+			<!-- Usuarios -->
+<section id="usuarios" class="section">
+    <div class="head-title">
+        <div class="left">
+            <h1>Usuarios</h1>
+        </div>
+    </div>
+
+    <ul class="box-info">
+        <li>
+            <i class='bx bxs-user'></i>
+            <span class="text">
+                <h3>50</h3>
+                <p>Usuarios Activos</p>
+            </span>
+        </li>
+        <li>
+            <i class='bx bxs-user-plus'></i>
+            <span class="text">
+                <h3>10</h3>
+                <p>Nuevos Registros</p>
+            </span>
+        </li>
+        <li>
+            <i class='bx bxs-face'></i>
+            <span class="text">
+                <h3>3</h3>
+                <p>Administradores</p>
+            </span>
+        </li>
+    </ul>
+
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Lista de Usuarios</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Perez</td>
+                        <td>juan@example.com</td>
+                        <td>Cliente</td>
+                        <td>Activo</td>
+                        <td>
+                            <i class='bx bx-user-circle icon-btn' data-action="ver" data-user="Juan Perez"></i>
+                            <i class='bx bx-lock icon-btn' data-action="bloquear" data-user="Juan Perez"></i>
+                            <i class='bx bx-trash icon-btn' data-action="eliminar" data-user="Juan Perez"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Maria Lopez</td>
+                        <td>maria@example.com</td>
+                        <td>Admin</td>
+                        <td>Activo</td>
+                        <td>
+                            <i class='bx bx-user-circle icon-btn' data-action="ver" data-user="Maria Lopez"></i>
+                            <i class='bx bx-lock icon-btn' data-action="bloquear" data-user="Maria Lopez"></i>
+                            <i class='bx bx-trash icon-btn' data-action="eliminar" data-user="Maria Lopez"></i>
+                        </td>
+                    </tr>
+                    <!-- Agrega más usuarios aquí -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+	<script src="script.js"></script>
+</body>
+</html>
