@@ -28,7 +28,7 @@
       <div class="user-menu">
         <i class='bx bx-user'></i>
         <div class="dropdown">
-          <a href="#">Iniciar sesión</a>
+          <a href="/Mateados/views/login/login.php">Iniciar sesión</a>
           <a href="#">Registrarme</a>
         </div>
       </div>

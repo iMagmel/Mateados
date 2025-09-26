@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . '/ConnectionBD.php';
+require_once __DIR__ . '/../Connection/ConnectionBD.php';
 
 class MLogin {
     private $conn;
 
-    public function __consruct() {
+    public function __construct() {
         $this->conn = ConnectionBD::Connection();
     }
 
