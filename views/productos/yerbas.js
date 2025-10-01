@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   });
 
- 
   function activarVerMas(botonId, contenedorId) {
     const btn = document.getElementById(botonId);
     const contenedor = document.getElementById(contenedorId);
@@ -47,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let productoActual = null;
 
   function abrirPortal(titulo, descripcion, imagenes) {
-   
+    
     portalSlider.innerHTML = "";
 
     imagenes.forEach((img, i) => {
@@ -62,11 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
       imagenes: Array.from(imagenes).map(img => img.src)
     };
 
+    
     portalTitulo.textContent = titulo;
     portalDescripcion.textContent = descripcion;
 
     portal.classList.add("show");
-
     const portalImages = portalSlider.querySelectorAll("img");
     let index = 0;
     clearInterval(portalInterval);
@@ -131,7 +130,7 @@ carritoIcon.addEventListener("click", () => {
     portalProductos.querySelectorAll(".eliminar").forEach(btn => {
       btn.addEventListener("click", () => {
         const i = btn.dataset.index;
-        carrito.splice(i, 1); 
+        carrito.splice(i, 1);
         btn.closest(".portal-item").remove(); 
 
         if (carrito.length === 0) {
@@ -144,18 +143,16 @@ carritoIcon.addEventListener("click", () => {
   portalCarrito.classList.add("show");
 });
 
-
   portalCerrarCarrito.addEventListener("click", () => {
     portalCarrito.classList.remove("show");
   });
 
-  
   const productosLink = document.querySelector(".desktop-nav .has-submenu > a");
   const submenu = document.querySelector(".desktop-nav .has-submenu .submenu");
 
   if (productosLink && submenu) {
     productosLink.addEventListener("click", (e) => {
-      e.preventDefault(); 
+      e.preventDefault();
       submenu.classList.toggle("open");
     });
   }

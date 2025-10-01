@@ -3,8 +3,8 @@
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once __DIR__ . "/../../controllers/CLogin.php";
-    $log = new CLogin();
+    require_once __DIR__ . "/../../controllers/iniciarsesion.php";
+    $log = new iniciarsesion();
     $email = $_POST['email'] ?? '';
     $usuario = $_POST['usuario'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -17,8 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <title></title>
+    <link rel="stylesheet" href="Login y Registro/css/style.css" />
+    <title>Iniciar sesión | SkyWay</title>
 </head>
 <body>
 
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="forms" id="forms">
             <form method="POST" action="" id="sign-in">
                 <h2>login</h2>
-                <p>¿No tenes cuenta todavia? <a href="/Mateados/views/registro/signup.php" id="link-sing-in">Registrarte</a></p>
+                <p>¿No tenes cuenta todavia? <a href="/PAGolimpiadas/controllers/logupController.php" id="link-sing-in">Registrarte</a></p>
                 <div class="input-container">
                     <label for="email">Direccion Email</label>
                     <input id="email" name="email" type="email" placeholder="you@example.com" />
@@ -50,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <button type="submit" class="button"> Entrar </button>
                 <div>
+                <button><a href="forget_pass.php">¿Te olvidaste tu contraseña?</a></button>
                 </div>
                 <a href="../pagprincipal/index.php" class="button">Inicio</a>
 

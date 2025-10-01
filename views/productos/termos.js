@@ -14,27 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   });
 
- 
-  function activarVerMas(botonId, contenedorId) {
-    const btn = document.getElementById(botonId);
-    const contenedor = document.getElementById(contenedorId);
-    if (!btn || !contenedor) return;
+  const btnVerMasCalabaza = document.getElementById("btn-ver-mas-calabaza");
+  const calabazaCards = document.getElementById("calabaza-cards");
 
-    btn.addEventListener("click", () => {
-      const cards = contenedor.querySelectorAll(".card.hidden");
-      cards.forEach(card => {
+  if (btnVerMasCalabaza && calabazaCards) {
+    btnVerMasCalabaza.addEventListener("click", () => {
+      const hiddenCards = calabazaCards.querySelectorAll(".card.hidden");
+      hiddenCards.forEach(card => {
         card.classList.remove("hidden");
         card.classList.add("show");
       });
-      btn.style.display = "none";
+      btnVerMasCalabaza.style.display = "none";
     });
   }
-
-  activarVerMas("btn-ver-mas-calabaza", "calabaza-cards");
-  activarVerMas("btn-ver-mas-imperial", "imperial-cards");
-  activarVerMas("btn-ver-mas-torpedo", "torpedo-cards");
-  activarVerMas("btn-ver-mas-camionero", "camionero-cards");
-  activarVerMas("btn-ver-mas-algarrobo", "algarrobo-cards");
 
   const portal = document.getElementById("portal");
   const portalCerrar = portal.querySelector(".cerrar");
@@ -55,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (i === 0) portalImg.classList.add("active");
       portalSlider.appendChild(portalImg);
     });
-
     productoActual = {
       titulo,
       descripcion,
@@ -66,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     portalDescripcion.textContent = descripcion;
 
     portal.classList.add("show");
-
     const portalImages = portalSlider.querySelectorAll("img");
     let index = 0;
     clearInterval(portalInterval);
@@ -108,48 +98,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-carritoIcon.addEventListener("click", () => {
-  portalProductos.innerHTML = "";
+  carritoIcon.addEventListener("click", () => {
+    portalProductos.innerHTML = "";
 
-  if (carrito.length === 0) {
-    portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
-  } else {
-    carrito.forEach((item, index) => {
-      const div = document.createElement("div");
-      div.classList.add("portal-item");
-      div.innerHTML = `
-        <img src="${item.imagenes[0]}" alt="${item.titulo}">
-        <div>
-          <h4>${item.titulo}</h4>
-          <p>${item.descripcion}</p>
-        </div>
-        <button class="eliminar" data-index="${index}">Eliminar</button>
-      `;
-      portalProductos.appendChild(div);
-    });
-
-    portalProductos.querySelectorAll(".eliminar").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const i = btn.dataset.index;
-        carrito.splice(i, 1); 
-        btn.closest(".portal-item").remove(); 
-
-        if (carrito.length === 0) {
-          portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
-        }
+    if (carrito.length === 0) {
+      portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
+    } else {
+      carrito.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.classList.add("portal-item");
+        div.innerHTML = `
+          <img src="${item.imagenes[0]}" alt="${item.titulo}">
+          <div>
+            <h4>${item.titulo}</h4>
+            <p>${item.descripcion}</p>
+          </div>
+          <button class="eliminar" data-index="${index}">Eliminar</button>
+        `;
+        portalProductos.appendChild(div);
       });
-    });
-  }
+      portalProductos.querySelectorAll(".eliminar").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const i = btn.dataset.index;
+          carrito.splice(i, 1); 
+          btn.closest(".portal-item").remove(); 
 
-  portalCarrito.classList.add("show");
-});
+          if (carrito.length === 0) {
+            portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
+          }
+        });
+      });
+    }
 
+    portalCarrito.classList.add("show");
+  });
 
   portalCerrarCarrito.addEventListener("click", () => {
     portalCarrito.classList.remove("show");
   });
 
-  
   const productosLink = document.querySelector(".desktop-nav .has-submenu > a");
   const submenu = document.querySelector(".desktop-nav .has-submenu .submenu");
 
