@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/Mateados/views/css/style.css" />
-    <title>Iniciar sesión | SkyWay</title>
+    <title>Iniciar sesión | Mateados</title>
 </head>
 <body>
 

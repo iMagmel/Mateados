@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="/Mateados/views/css/style.css" />
 
-  <title>Registrarse | SkyWay</title>
+  <title>Registrarse | Mateados</title>
 </head>
 <body>
   <div class="container" id="container">

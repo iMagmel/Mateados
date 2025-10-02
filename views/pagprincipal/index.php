@@ -1,3 +1,16 @@
+<?php
+require_once __DIR__ . '/../../session/SesionUsuario.php'; 
+use Sesion\SesionUsuario;
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+$usuario = SesionUsuario::getUsuario();
+$nombre   = SesionUsuario::getNombre();  
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,25 +26,29 @@
   
 <header>
   <div class="header-top">
-    <!-- Izquierda -->
     <div class="left-icons">
       <i class='bx bx-search'></i>
     </div>
 
-    <!-- Centro -->
     <div class="logo-title">
       <h1>Mateados</h1>
     </div>
 
-    <!-- Derecha -->
     <div class="right-icons">
-      <div class="user-menu">
-        <i class='bx bx-user'></i>
-        <div class="dropdown">
+            <div class="user-menu">
+                <i class='bx bx-user'></i>
+                <div class="dropdown">
+                          <?php if ($usuario): ?>
+          <span>Hola, <?= htmlspecialchars($usuario) ?></span>
+          <a href="/Mateados/controllers/CLogOut.php">Cerrar sesión</a>
+      <?php else: ?>
           <a href="/Mateados/views/login/login.php">Iniciar sesión</a>
-          <a href="#">Registrarme</a>
+          <a href="/Mateados/controllers/CVSignUp.php">Registrarme</a>
+      <?php endif; ?>
+
+                </div>
+            </div>
         </div>
-      </div>
       <i class='bx bx-cart'></i>
       
       <button class="menu-toggle" id="menu-toggle">
@@ -60,36 +77,35 @@
       <a href="#">Productos</a>
       <ul class="submenu">
         <li>
-          <a href="#">Mates</a>
+          <a href="../productos/mates.php">Mates</a>
           <ul class="submenu-items">
-            <li><a href="#">Calabaza</a></li>
-            <li><a href="#">Imperial</a></li>
-            <li><a href="#">Torpedo</a></li>
-            <li><a href="#">Camionero</a></li>
-            <li><a href="#">Algarrobo</a></li>
+            <li><a href="../productos/mates.php">Calabaza</a></li>
+            <li><a href="../productos/mates.php">Imperial</a></li>
+            <li><a href="../productos/mates.php">Torpedo</a></li>
+            <li><a href="../productos/mates.php">Camionero</a></li>
+            <li><a href="../productos/mates.php">Algarrobo</a></li>
           </ul>
         </li>
         <li>
-          <a href="#">Termos</a>
+          <a href="../productos/termos.php">Termos</a>
           <ul class="submenu-items">
-            <li><a href="#">Metálico</a></li>
+            <li><a href="../productos/termos.php">Metálico</a></li>
           </ul>
         </li>
         <li>
-          <a href="#">Yerba</a>
+          <a href="../productos/yerba.php">Yerba</a>
           <ul class="submenu-items">
-            <li><a href="#">Sara</a></li>
-            <li><a href="#">Baldo</a></li>
-            <li><a href="#">Canarias</a></li>
-            <li><a href="#">Rei Verde</a></li>
-            <li><a href="#">Amanda</a></li>
-            <li><a href="#">Playadito</a></li>
+            <li><a href="../productos/yerbas.php">Sara</a></li>
+            <li><a href="../productos/yerbas.php">Baldo</a></li>
+            <li><a href="../productos/yerbas.php">Canarias</a></li>
+            <li><a href="../productos/yerbas.php">Amanda</a></li>
+            <li><a href="../productos/yerbas.php">Playadito</a></li>
           </ul>
         </li>
         <li>
-          <a href="#">Materas</a>
+          <a href="../productos/materas.php">Materas</a>
           <ul class="submenu-items">
-            <li><a href="#">Cuero</a></li>
+            <li><a href="../productos/materas.php">Cuero</a></li>
           </ul>
         </li>
       </ul>
@@ -100,36 +116,30 @@
 
 </header>
 
-<!-- MARQUESINA -->
 <div class="marquee">
   <p>20 % DE DESCUENTO EN EFECTIVO • 20 % DE DESCUENTO EN EFECTIVO • 20 % DE DESCUENTO EN EFECTIVO •</p>
 </div>
-<!-- CARRUSEL -->
-<!-- CARRUSEL -->
 <div class="carousel">
   <div class="carousel-track">
 
-    <!-- Item 1 -->
     <div class="carousel-item">
-      <img src="https://picsum.photos/id/1050/1200/400" alt="Mate 1">
+      <img src="/Mateados/views/img/imgcarru.jpg" alt="Mate 1">
       <div class="carousel-text">
         <h2>Sobre Nosotros</h2>
         <p>Somos materos y nos encanta tomar mate mañana, tarde y noche.</p>
       </div>
     </div>
 
-    <!-- Item 2 -->
     <div class="carousel-item">
-      <img src="https://picsum.photos/id/1051/1200/400" alt="Mate 2">
+      <img src="/Mateados/views/img/imgcarru2.jpg" alt="Mate 2">
       <div class="carousel-text">
         <h2>Variedad de Productos</h2>
         <p>Contamos con mates de madera, aluminio, cerámica y termos Stanley.</p>
       </div>
     </div>
 
-    <!-- Item 3 -->
     <div class="carousel-item">
-      <img src="https://picsum.photos/id/1052/1200/400" alt="Mate 3">
+      <img src="/Mateados/views/img/termos.jpeg" alt="Mate 3">
       <div class="carousel-text">
         <h2>Patrocinios</h2>
         <p>Nos respaldan marcas reconocidas de mates y termos de calidad.</p>
@@ -142,58 +152,59 @@
 
 <hr>
 
-<!-- SECCIÓN PRODUCTOS -->
 <section class="productos">
   <div class="contenido">
     <h2>Nuestros Productos</h2>
     <div class="cards-container">
-      <div class="card">
-      <div class="card-img">
-        <img src="https://picsum.photos/id/1011/400/250" alt="Mates">
-        <div class="card-overlay">
-          <p>Encuentra los mejores mates de madera, acero y cerámica.</p>
-        </div>
-      </div>
-      <h3>Mates</h3>
-    </div>
 
-    <div class="card">
-      <div class="card-img">
-        <img src="https://picsum.photos/id/1012/400/250" alt="Termos">
-        <div class="card-overlay">
-          <p>Termos de alta calidad para mantener tu bebida caliente.</p>
-        </div>
-      </div>
-      <h3>Termos</h3>
-    </div>
-
-    <div class="card">
-      <div class="card-img">
-        <img src="https://picsum.photos/id/1013/400/250" alt="Yerbas">
-        <div class="card-overlay">
-          <p>Yerbas seleccionadas y blends únicos para tu mate.</p>
-        </div>
-      </div>
-      <h3>Yerbas</h3>
-    </div>
-
-      <div class="card">
+      <a href="../productos/mates.html" class="card">
         <div class="card-img">
-          <img src="https://picsum.photos/id/1014/400/250" alt="Materos">
+          <img src="/Mateados/views/img/calabaza1.jpg" alt="Mates">
+          <div class="card-overlay">
+            <p>Encuentra los mejores mates de madera, acero y cerámica.</p>
+          </div>
+        </div>
+        <h3>Mates</h3>
+      </a>
+
+      <a href="../productos/termos.html" class="card">
+        <div class="card-img">
+          <img src="/Mateados/views/img/termos.jpeg" alt="Termos">
+          <div class="card-overlay">
+            <p>Termos de alta calidad para mantener tu bebida caliente.</p>
+          </div>
+        </div>
+        <h3>Termos</h3>
+      </a>
+
+      <a href="../productos/yerbas.html" class="card">
+        <div class="card-img">
+          <img src="/Mateados/views/img/yerba.webp" alt="Yerbas">
+          <div class="card-overlay">
+            <p>Yerbas seleccionadas y blends únicos para tu mate.</p>
+          </div>
+        </div>
+        <h3>Yerbas</h3>
+      </a>
+
+      <a href="../productos/materas.html" class="card">
+        <div class="card-img">
+          <img src="/Mateados/views/img/matera.webp" alt="Materos">
           <div class="card-overlay">
             <p>Materos elegantes y resistentes para cualquier ocasión.</p>
           </div>
         </div>
         <h3>Materos</h3>
-      </div>
+      </a>
+
     </div>
   </div>
 </section>
 
 
+
 <hr>
 
-<!-- SECCIÓN RESEÑAS -->
 <section class="reseñas">
   <div class="contenido reseñas-contenido">
     <div class="reseñas-left">
@@ -214,27 +225,94 @@
     </div>
   </div>
 </section>
-<!-- FOOTER -->
+
+<section class="faq-section" id="faq">
+  <h2>Preguntas Frecuentes</h2>
+  <div class="faq-container">
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>¿Cómo realizo una compra?</span>
+        <button class="faq-toggle">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>Puedes realizar tu compra seleccionando el producto, agregándolo al carrito y siguiendo los pasos de pago.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>¿Hacen envíos a todo el país?</span>
+        <button class="faq-toggle">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>Sí, realizamos envíos a todas las provincias mediante correo certificado.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>¿Puedo devolver un producto?</span>
+        <button class="faq-toggle">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>Tienes hasta 15 días hábiles para devolver un producto en su empaque original.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>¿Qué métodos de pago aceptan?</span>
+        <button class="faq-toggle">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>Aceptamos tarjetas de crédito, débito, transferencias bancarias y billeteras virtuales.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>¿Cuánto tarda el envío?</span>
+        <button class="faq-toggle">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>El envío tarda entre 3 y 7 días hábiles según tu ubicación.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>¿Cómo puedo contactar al soporte?</span>
+        <button class="faq-toggle">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>Puedes escribirnos a través del formulario de contacto o mediante WhatsApp.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
 <footer class="footer">
   <div class="footer-container">
 
-    <!-- CONTACTO -->
     <div class="footer-section">
       <h3>Contacto</h3>
-      <p>Email: contacto@matematicos.com</p>
+      <p>Email: contacto@mateados.com</p>
       <p>Dirección: Av. Mate 123, Buenos Aires</p>
       <p>Tel: +54 11 1234-5678</p>
     </div>
 
-    <!-- AYUDA -->
     <div class="footer-section">
       <h3>Ayuda</h3>
-      <p><a href="#">Preguntas frecuentes</a></p>
+      <p><a href="#faq">Preguntas frecuentes</a></p>
       <p><a href="#">Guía de compra</a></p>
       <p><a href="#">Soporte técnico</a></p>
     </div>
 
-    <!-- POLÍTICAS -->
     <div class="footer-section">
       <h3>Políticas</h3>
       <p><a href="#">Política de privacidad</a></p>
@@ -244,12 +322,12 @@
 
   </div>
 
-  <!-- COPYRIGHT -->
   <div class="footer-bottom">
-    <p>© 2025 Matemáticos - Todos los derechos reservados</p>
+    <p>© 2025 Mateados - Todos los derechos reservados</p>
   </div>
 </footer>
 
-<script src="menu.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
+

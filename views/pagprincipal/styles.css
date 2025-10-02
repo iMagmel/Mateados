@@ -31,66 +31,63 @@ header {
 }
 
 .logo-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    text-align: center;
+    flex: 1; 
 }
 
 .logo-title h1 {
-  font-size: 40px;
-  font-weight: 700;
-  color: white;
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
 }
 
-
-.left-icons i {
-  font-size: 22px;
-  cursor: pointer;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.left-icons i:hover {
-  transform: scale(1.1);
-  color: #ffdd57;
+.left-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .right-icons {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.right-icons i {
-  font-size: 22px;
-  cursor: pointer;
-  transition: transform 0.3s ease, color 0.3s ease;
+.right-icons i, .left-icons i {
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.right-icons i:hover {
-  transform: scale(1.1);
-  color: #ffdd57;
+.right-icons i:hover, .left-icons i:hover {
+    transform: scale(1.1);
+    color: #ffdd57;
 }
 
 .user-menu {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
 }
 
+
 .user-menu .dropdown {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 30px;
-  background: white;
-  color: black;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  overflow: hidden;
-  min-width: 150px;
-  z-index: 10;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    min-width: 150px;
+    z-index: 10;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
 }
 
 .user-menu .dropdown a {

@@ -54,13 +54,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $password, $id_rol
         );
 
+if ($resultado['registrado'] == 1) {
+    echo "<script>
+        alert('Registro exitoso. Ahora podés iniciar sesión.');
+        window.location.href = '/Mateados/views/login/login.php';
+    </script>";
+    exit();
+} else {
+    $error = "El usuario o email ya están registrados.";
+}
 
-        if ($resultado === true) {
-        header("Location: /Mateados/views/login/login.php");
-        exit();            
-        } else {
-            $error = $resultado;
-        }
+
+    
     }
 }
 

@@ -15,7 +15,7 @@ class MSignUp{
     $usuario, $contrasena, $id_rol) {
         try {
             $encriptacion = new Encriptar();
-            $password_hash = $encriptacion->SHA256($usuario, $contrasena);
+            $password_hash = $encriptacion->SHA256($contrasena);
 
             $sql = "EXEC SP_RegistroUsuario ?, ?, ?, ?, ?, ?, ?, ?";
 
@@ -31,9 +31,9 @@ class MSignUp{
                 $id_rol
             ]);
 
-            $stmt->nextRowset();
             $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
             return $resultado;
+
 
         } catch (PDOException $e) {
             return "Error al registrar usuario: " . $e->getMessage();

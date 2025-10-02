@@ -18,8 +18,8 @@ class SesionUsuario {
         self::$idRol = $idRol;
 
         $_SESSION["Id_Usuario"] = $idUsuario;
-        $_SESSION["nombre"] = $nombre;
-        $_SESSION["usuario"] = $usuario;
+        $_SESSION["Nombre"] = $nombre;
+        $_SESSION["NUsuario"] = $usuario;
         $_SESSION["Id_Rol"] = $idRol;
     }
 
@@ -42,11 +42,11 @@ class SesionUsuario {
     }
 
     public static function getNombre() {
-        return self::$nombre ?? $_SESSION["nombre"] ?? null;
+        return self::$nombre ?? $_SESSION["Nombre"] ?? null;
     }
 
     public static function getUsuario() {
-        return self::$usuario ?? $_SESSION["usuario"] ?? null;
+        return self::$usuario ?? $_SESSION["NUsuario"] ?? null;
     }
 
     public static function getIdRol() {
