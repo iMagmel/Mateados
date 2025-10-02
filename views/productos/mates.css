@@ -60,6 +60,8 @@ header {
   display: flex;
   align-items: center;
   gap: 15px;
+  
+  margin-left: auto;
 }
 
 .right-icons i {
@@ -682,12 +684,14 @@ hr {
 
 .portal-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 15px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 15px;
 }
-
+.portal-item .texto {
+  flex: 2;
+}
 .portal-item img {
   width: 120px;   
   height: 120px;
@@ -699,10 +703,9 @@ hr {
   font-size: 25px;
   cursor: pointer;
 }
-.portal-item div {
+.portal-item div.texto {
   flex: 1;
 }
-
 .portal-item button {
   background: #e63946;
   color: white;
@@ -716,4 +719,24 @@ hr {
 
 .portal-item button:hover {
   background: #c1121f;
+}
+.portal-botones {
+  display: flex;
+  flex-direction: column; 
+  gap: 8px; 
+   flex: 1; 
+  align-items: flex-end;
+}
+
+.portal-botones button {
+width: auto; 
+  min-width: 100px;
+}
+
+.portal-item button.comprar {
+  background: #2a9d8f;
+}
+
+.portal-item button.comprar:hover {
+  background: #21867a;
 }

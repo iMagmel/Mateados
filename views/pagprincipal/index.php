@@ -157,7 +157,7 @@ $nombre   = SesionUsuario::getNombre();
     <h2>Nuestros Productos</h2>
     <div class="cards-container">
 
-      <a href="../productos/mates.html" class="card">
+      <a href="../productos/mates.php" class="card">
         <div class="card-img">
           <img src="/Mateados/views/img/calabaza1.jpg" alt="Mates">
           <div class="card-overlay">
@@ -167,7 +167,7 @@ $nombre   = SesionUsuario::getNombre();
         <h3>Mates</h3>
       </a>
 
-      <a href="../productos/termos.html" class="card">
+      <a href="../productos/mates.php" class="card">
         <div class="card-img">
           <img src="/Mateados/views/img/termos.jpeg" alt="Termos">
           <div class="card-overlay">
@@ -177,7 +177,7 @@ $nombre   = SesionUsuario::getNombre();
         <h3>Termos</h3>
       </a>
 
-      <a href="../productos/yerbas.html" class="card">
+      <a href="../productos/mates.php" class="card">
         <div class="card-img">
           <img src="/Mateados/views/img/yerba.webp" alt="Yerbas">
           <div class="card-overlay">
@@ -187,7 +187,7 @@ $nombre   = SesionUsuario::getNombre();
         <h3>Yerbas</h3>
       </a>
 
-      <a href="../productos/materas.html" class="card">
+      <a href="../productos/mates.php" class="card">
         <div class="card-img">
           <img src="/Mateados/views/img/matera.webp" alt="Materos">
           <div class="card-overlay">

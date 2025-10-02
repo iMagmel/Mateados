@@ -35,6 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
   activarVerMas("btn-ver-mas-torpedo", "torpedo-cards");
   activarVerMas("btn-ver-mas-camionero", "camionero-cards");
   activarVerMas("btn-ver-mas-algarrobo", "algarrobo-cards");
+  activarVerMas("btn-ver-mas-materas", "materas-cards");
+
+  activarVerMas("btn-ver-mas-termos", "termos-cards");
+
+  activarVerMas("btn-ver-mas-sara", "sara-cards");
+  
+  activarVerMas("btn-ver-mas-baldo", "baldo-cards");
+
+  activarVerMas("btn-ver-mas-canarias", "canarias-cards");
 
   const portal = document.getElementById("portal");
   const portalCerrar = portal.querySelector(".cerrar");
@@ -118,13 +127,16 @@ carritoIcon.addEventListener("click", () => {
       const div = document.createElement("div");
       div.classList.add("portal-item");
       div.innerHTML = `
-        <img src="${item.imagenes[0]}" alt="${item.titulo}">
-        <div>
-          <h4>${item.titulo}</h4>
-          <p>${item.descripcion}</p>
-        </div>
-        <button class="eliminar" data-index="${index}">Eliminar</button>
-      `;
+  <img src="${item.imagenes[0]}" alt="${item.titulo}">
+  <div class="texto">
+    <h4>${item.titulo}</h4>
+    <p>${item.descripcion}</p>
+  </div>
+  <div class="portal-botones">
+    <button class="comprar" data-index="${index}">Comprar</button>
+    <button class="eliminar" data-index="${index}">Eliminar</button>
+  </div>
+`;
       portalProductos.appendChild(div);
     });
 
@@ -140,6 +152,18 @@ carritoIcon.addEventListener("click", () => {
       });
     });
   }
+  portalProductos.querySelectorAll(".comprar").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const i = btn.dataset.index;
+    alert(`¡Gracias por tu compra de ${carrito[i].titulo}!`);
+    carrito.splice(i, 1); 
+    btn.closest(".portal-item").remove();
+
+    if (carrito.length === 0) {
+      portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
+    }
+  });
+});
 
   portalCarrito.classList.add("show");
 });

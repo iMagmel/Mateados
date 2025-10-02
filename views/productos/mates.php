@@ -39,16 +39,16 @@ $nombre   = SesionUsuario::getNombre();
                 <i class='bx bx-user'></i>
                 <div class="dropdown">
                           <?php if ($usuario): ?>
-          <span>Hola, <?= htmlspecialchars($usuario) ?></span>
-          <a href="/Mateados/controllers/CLogOut.php">Cerrar sesión</a>
-      <?php else: ?>
-          <a href="/Mateados/views/login/login.php">Iniciar sesión</a>
-          <a href="/Mateados/controllers/CVSignUp.php">Registrarme</a>
-      <?php endif; ?>
+                          <span>Hola, <?= htmlspecialchars($usuario) ?></span>
+                          <a href="/Mateados/controllers/CLogOut.php">Cerrar sesión</a>
+                      <?php else: ?>
+                          <a href="/Mateados/views/login/login.php">Iniciar sesión</a>
+                          <a href="/Mateados/controllers/CVSignUp.php">Registrarme</a>
+                      <?php endif; ?>
 
                 </div>
-            </div>
-        </div>
+          </div>
+      </div>
       <i class='bx bx-cart'></i>
       
       <button class="menu-toggle" id="menu-toggle">
@@ -143,15 +143,15 @@ $nombre   = SesionUsuario::getNombre();
 
 <div class="descuentos">
   <div class="descuento">
-    <img src="/views/img/calabaza1.jpg" alt="Descuento 1">
+    <img src="/MATEADOS/views/img/calabaza1.jpg" alt="Descuento 1">
     <div class="overlay">20% de Descuento</div>
   </div>
   <div class="descuento">
-    <img src="/views/img/calabaza1.jpg" alt="Descuento 2">
+    <img src="/MATEADOS/views/img/calabaza1.jpg" alt="Descuento 2">
     <div class="overlay">30% de Descuento</div>
   </div>
   <div class="descuento">
-    <img src="/views/img/calabaza1.jpg" alt="Descuento 3">
+    <img src="/MATEADOS/views/img/calabaza1.jpg" alt="Descuento 3">
     <div class="overlay">50% de Descuento</div>
   </div>
 </div>
@@ -168,9 +168,9 @@ $nombre   = SesionUsuario::getNombre();
 <div class="cards-container" id="calabaza-cards">
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Calabaza 1</h3>
     <div class="descripcion" style="display:none;">
@@ -180,9 +180,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Calabaza 2</h3>
     <div class="descripcion" style="display:none;">
@@ -192,9 +192,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Calabaza 3</h3>
     <div class="descripcion" style="display:none;">
@@ -204,9 +204,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Calabaza 4</h3>
     <div class="descripcion" style="display:none;">
@@ -216,9 +216,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Calabaza 5</h3>
     <div class="descripcion" style="display:none;">
@@ -235,9 +235,9 @@ $nombre   = SesionUsuario::getNombre();
 <div class="cards-container" id="imperial-cards">
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Imperial 1</h3>
     <div class="descripcion" style="display:none;">
@@ -247,9 +247,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Imperial 2</h3>
     <div class="descripcion" style="display:none;">
@@ -259,9 +259,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Imperial 3</h3>
     <div class="descripcion" style="display:none;">
@@ -271,9 +271,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Imperial 4</h3>
     <div class="descripcion" style="display:none;">
@@ -283,9 +283,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Imperial 5</h3>
     <div class="descripcion" style="display:none;">
@@ -302,9 +302,9 @@ $nombre   = SesionUsuario::getNombre();
 <div class="cards-container" id="torpedo-cards">
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Torpedo 1</h3>
     <div class="descripcion" style="display:none;">
@@ -314,9 +314,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Torpedo 2</h3>
     <div class="descripcion" style="display:none;">
@@ -326,9 +326,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Torpedo 3</h3>
     <div class="descripcion" style="display:none;">
@@ -338,9 +338,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Torpedo 4</h3>
     <div class="descripcion" style="display:none;">
@@ -350,9 +350,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Torpedo 5</h3>
     <div class="descripcion" style="display:none;">
@@ -369,9 +369,9 @@ $nombre   = SesionUsuario::getNombre();
 <div class="cards-container" id="camionero-cards">
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Camionero 1</h3>
     <div class="descripcion" style="display:none;">
@@ -381,9 +381,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Camionero 2</h3>
     <div class="descripcion" style="display:none;">
@@ -393,9 +393,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Camionero 3</h3>
     <div class="descripcion" style="display:none;">
@@ -405,9 +405,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Camionero 4</h3>
     <div class="descripcion" style="display:none;">
@@ -417,9 +417,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Camionero 5</h3>
     <div class="descripcion" style="display:none;">
@@ -436,9 +436,9 @@ $nombre   = SesionUsuario::getNombre();
 <div class="cards-container" id="algarrobo-cards">
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Algarrobo 1</h3>
     <div class="descripcion" style="display:none;">
@@ -448,9 +448,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Algarrobo 2</h3>
     <div class="descripcion" style="display:none;">
@@ -460,9 +460,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Algarrobo 3</h3>
     <div class="descripcion" style="display:none;">
@@ -472,9 +472,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Algarrobo 4</h3>
     <div class="descripcion" style="display:none;">
@@ -484,9 +484,9 @@ $nombre   = SesionUsuario::getNombre();
   </div>
   <div class="card hidden">
     <div class="slider">
-      <img src="/views/img/calabaza1.jpg" alt="">
-      <img src="/views/img/calabaza1,2.jpg" alt="">
-      <img src="/views/img/calabaza1,3.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,2.jpg" alt="">
+      <img src="/MATEADOS/views/img/calabaza1,3.jpg" alt="">
     </div>
     <h3>Algarrobo 5</h3>
     <div class="descripcion" style="display:none;">
@@ -498,6 +498,346 @@ $nombre   = SesionUsuario::getNombre();
 <div class="ver-mas-container">
   <button id="btn-ver-mas-algarrobo">Ver más productos</button>
 </div>
+
+<h2 id="materas">Materas</h2>
+  <div class="cards-container" id="materas-cards">
+    <div class="card">
+      <div class="slider">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+      </div>
+      <h3>Matera de Cuero 1</h3>
+      <div class="descripcion" style="display:none;">
+        bolso o canasta diseñado específicamente para transportar los accesorios necesarios para preparar y tomar mate.
+      </div>
+      <button>Ver más</button>
+    </div>
+    <div class="card">
+      <div class="slider">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+      </div>
+      <h3>Matera de Cuero 2</h3>
+      <div class="descripcion" style="display:none;">
+        bolso o canasta diseñado específicamente para transportar los accesorios necesarios para preparar y tomar mate.
+      </div>
+      <button>Ver más</button>
+    </div>
+    <div class="card">
+      <div class="slider">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+      </div>
+      <h3>Matera de Cuero 3</h3>
+      <div class="descripcion" style="display:none;">
+        bolso o canasta diseñado específicamente para transportar los accesorios necesarios para preparar y tomar mate.
+      </div>
+      <button>Ver más</button>
+    </div>
+    <div class="card hidden">
+      <div class="slider">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+      </div>
+      <h3>Matera de Cuero 4</h3>
+      <div class="descripcion" style="display:none;">
+        bolso o canasta diseñado específicamente para transportar los accesorios necesarios para preparar y tomar mate.
+      </div>
+      <button>Ver más</button>
+    </div>
+    <div class="card hidden">
+      <div class="slider">
+        <img src="/MATEADOS//views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+        <img src="/MATEADOS/views/img/Materas-de-cuero.jpg" alt="">
+      </div>
+      <h3>Matera de Cuero 5</h3>
+      <div class="descripcion" style="display:none;">
+        bolso o canasta diseñado específicamente para transportar los accesorios necesarios para preparar y tomar mate.
+      </div>
+      <button>Ver más</button>
+    </div>
+  </div>
+
+  <div class="ver-mas-container">
+    <button id="btn-ver-mas-materas">Ver más productos</button>
+  </div>
+
+  <h2 id="termos">Termos Metalicos</h2>
+  <div class="cards-container" id="termos-cards">
+    <div class="card">
+      <div class="slider">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+      </div>
+      <h3>Metalico 1</h3>
+      <div class="descripcion" style="display:none;">
+        Este es un termo metalico capacitado para tomar unos ricos mates.
+      </div>
+      <button>Ver más</button>
+    </div>
+    <div class="card">
+      <div class="slider">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+      </div>
+      <h3>Metalico 2</h3>
+      <div class="descripcion" style="display:none;">
+        Este es un termo metalico capacitado para tomar unos ricos mates.
+      </div>
+      <button>Ver más</button>
+    </div>
+    <div class="card">
+      <div class="slider">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+      </div>
+      <h3>Metalico 3</h3>
+      <div class="descripcion" style="display:none;">
+        Este es un termo metalico capacitado para tomar unos ricos mates.
+      </div>
+      <button>Ver más</button>
+    </div>
+    <div class="card hidden">
+      <div class="slider">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+      </div>
+      <h3>Metalico 4</h3>
+      <div class="descripcion" style="display:none;">
+        Este es un termo metalico capacitado para tomar unos ricos mates.
+      </div>
+      <button>Ver más</button>
+    </div>
+    <div class="card hidden">
+      <div class="slider">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+        <img src="/MATEADOS/views/img/termos.jpeg" alt="">
+      </div>
+      <h3>Metalico 5</h3>
+      <div class="descripcion" style="display:none;">
+        Este es un termo metalico capacitado para tomar unos ricos mates.
+      </div>
+      <button>Ver más</button>
+    </div>
+  </div>
+
+  <div class="ver-mas-container">
+    <button id="btn-ver-mas-termos">Ver más productos</button>
+  </div>
+
+
+   
+<h2 id="sara">Yerba Sara</h2>
+<div class="cards-container" id="sara-cards">
+  <div class="card">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+    </div>
+    <h3>Yerba Sara 1</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba Sara es una marca uruguaya elaborada con hojas de yerba mate nativa de origen brasileño
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+    </div>
+    <h3>Yerba Sara 2</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba Sara es una marca uruguaya elaborada con hojas de yerba mate nativa de origen brasileño
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+    </div>
+    <h3>Yerba Sara 3</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba Sara es una marca uruguaya elaborada con hojas de yerba mate nativa de origen brasileño.
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+    </div>
+    <h3>Yerba Sara 4</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba Sara es una marca uruguaya elaborada con hojas de yerba mate nativa de origen brasileño.
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+      <img src="/MATEADOS/views/img/sara.jpg" alt="">
+    </div>
+    <h3>Yerba Sara 5</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba Sara es una marca uruguaya elaborada con hojas de yerba mate nativa de origen brasileño
+  </div>
+    <button>Ver más</button>
+  </div>
+</div>
+
+<div class="ver-mas-container">
+  <button id="btn-ver-mas-sara">Ver más productos</button>
+</div>
+<h2 id="baldo">Yerba Baldo</h2>
+<div class="cards-container" id="baldo-cards">
+  <div class="card">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+    </div>
+    <h3>Yerba Baldo 1</h3>
+    <div class="descripcion" style="display:none;">
+    conocida por su sabor equilibrado y alta durabilidad. Al ser un producto 100% natural, sin aditivos ni conservantes.
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+    </div>
+    <h3>Yerba Baldo 2</h3>
+    <div class="descripcion" style="display:none;">
+    conocida por su sabor equilibrado y alta durabilidad. Al ser un producto 100% natural, sin aditivos ni conservantes.
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+    </div>
+    <h3>Yerba Baldo 3</h3>
+    <div class="descripcion" style="display:none;">
+    conocida por su sabor equilibrado y alta durabilidad. Al ser un producto 100% natural, sin aditivos ni conservantes.
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+    </div>
+    <h3>Yerba Baldo 4</h3>
+    <div class="descripcion" style="display:none;">
+    conocida por su sabor equilibrado y alta durabilidad. Al ser un producto 100% natural, sin aditivos ni conservantes.
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+      <img src="/MATEADOS/views/img/baldo.jpg" alt="">
+    </div>
+    <h3>Yerba Baldo 5</h3>
+    <div class="descripcion" style="display:none;">
+    conocida por su sabor equilibrado y alta durabilidad. Al ser un producto 100% natural, sin aditivos ni conservantes.
+  </div>
+    <button>Ver más</button>
+  </div>
+</div>
+<div class="ver-mas-container">
+  <button id="btn-ver-mas-baldo">Ver más productos</button>
+</div>
+
+<h2 id="canarias">Yerba Canarias</h2>
+<div class="cards-container" id="canarias-cards">
+  <div class="card">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+    </div>
+    <h3>Yerba Canarias 1</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba mate Canarias es una marca uruguaya conocida por su sabor intenso, amargo y de larga duración
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+    </div>
+    <h3>Yerba Canarias 2</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba mate Canarias es una marca uruguaya conocida por su sabor intenso, amargo y de larga duración
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+    </div>
+    <h3>Yerba Canarias 3</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba mate Canarias es una marca uruguaya conocida por su sabor intenso, amargo y de larga duración
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+    </div>
+    <h3>Yerba Canarias 4</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba mate Canarias es una marca uruguaya conocida por su sabor intenso, amargo y de larga duración
+  </div>
+    <button>Ver más</button>
+  </div>
+  <div class="card hidden">
+    <div class="slider">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+      <img src="/MATEADOS/views/img/canarias.jpg" alt="">
+    </div>
+    <h3>Yerba Canarias 5</h3>
+    <div class="descripcion" style="display:none;">
+    La yerba mate Canarias es una marca uruguaya conocida por su sabor intenso, amargo y de larga duración
+  </div>
+    <button>Ver más</button>
+  </div>
+</div>
+<div class="ver-mas-container">
+  <button id="btn-ver-mas-canarias">Ver más productos</button>
+</div>
+
 
 
 
