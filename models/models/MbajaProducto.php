@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/ConnectionBD.php';
+require_once __DIR__ . '/../Connection/ConnectionBD.php';
 
 class MbajaProducto{
     private $conn;

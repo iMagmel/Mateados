@@ -94,3 +94,4 @@ function initIconButtons() {
 
 // Inicializar botones al cargar la página
 window.addEventListener('DOMContentLoaded', initIconButtons);
+
