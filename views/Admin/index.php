@@ -43,6 +43,7 @@ foreach ($ventas as $v) {
 			<li class="active"><a href="#"><i class='bx bxs-dashboard'></i><span class="text">Dashboard</span></a></li>
 			<li><a href="#"><i class='bx bxs-shopping-bag-alt'></i><span class="text">Mi Tienda</span></a></li>
 			<li><a href="#"><i class='bx bxs-user'></i><span class="text">Usuarios</span></a></li>
+            <li><a href="#"><i class='bx bxs-user-detail'></i><span class="text">Clientes</span></a></li>
 		</ul>
 		<ul class="side-menu">
 			<li><a href="#" class="logout"><i class='bx bxs-log-out-circle'></i><span class="text">Logout</span></a></li>
@@ -258,6 +259,17 @@ foreach ($ventas as $v) {
         </div>
     </div>
 </section>
+
+    <!-- Modal genérico -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modal-title">Agregar</h2>
+    <form id="modal-form">
+      <!-- El contenido del formulario se insertará dinámicamente -->
+    </form>
+  </div>
+</div>
 
 	<script src="script.js"></script>
 </body>

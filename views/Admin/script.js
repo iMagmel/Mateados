@@ -6,7 +6,8 @@ const sections = document.querySelectorAll('main .section');
 const nameToId = {
 	'dashboard': 'dashboard',
 	'mi tienda': 'tienda',
-	'usuarios': 'usuarios'
+	'usuarios': 'usuarios',
+	'clientes': 'clientes'
 };
 
 allSideMenu.forEach(item => {
@@ -92,6 +93,72 @@ function initIconButtons() {
     });
 }
 
+// ---- MODAL ----
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modal-title');
+const modalForm = document.getElementById('modal-form');
+const closeBtn = document.querySelector('.modal .close');
+
+// Abrir modal según la sección
+document.querySelectorAll('.btn-download').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const section = btn.closest('.section').id;
+
+        modal.style.display = 'block';
+
+        switch(section) {
+            case 'usuarios':
+                modalTitle.textContent = 'Agregar Usuario';
+                modalForm.innerHTML = `
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Email" required>
+                    <select>
+                        <option value="cliente">Cliente</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                    <button type="submit">Guardar</button>
+                `;
+                break;
+
+            case 'clientes':
+                modalTitle.textContent = 'Agregar Cliente';
+                modalForm.innerHTML = `
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Teléfono" required>
+                    <button type="submit">Guardar</button>
+                `;
+                break;
+
+            case 'tienda':
+                modalTitle.textContent = 'Agregar Producto';
+                modalForm.innerHTML = `
+                    <input type="text" placeholder="Nombre del producto" required>
+                    <input type="number" placeholder="Precio" required>
+                    <input type="number" placeholder="Stock" required>
+                    <button type="submit">Guardar</button>
+                `;
+                break;
+
+            default:
+                modalTitle.textContent = 'Agregar';
+                modalForm.innerHTML = `<p>No hay formulario definido para esta sección.</p>`;
+        }
+    });
+});
+
+// Cerrar modal
+closeBtn.onclick = () => { modal.style.display = 'none'; }
+window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
+
+// Manejo del formulario (por ahora solo muestra en consola)
+modalForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert("Datos enviados (simulado)");
+    modal.style.display = 'none';
+});
+
+
 // Inicializar botones al cargar la página
 window.addEventListener('DOMContentLoaded', initIconButtons);
-
