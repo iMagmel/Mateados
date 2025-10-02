@@ -1,24 +1,15 @@
 <?php
-require_once __DIR__ . "/../models/models/DatosAuxiliares.php";
 require_once __DIR__ . "/CSignUp.php";
 
 $error = '';
-$datosAux = new DatosAuxiliares();
-
-$generos = $datosAux->obtenerGeneros();
-$ubicaciones = $datosAux->obtenerUbicaciones();
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = trim($_POST['nombre'] ?? '');
     $apellido = trim($_POST['apellido'] ?? '');
     $usuario = trim($_POST['usuario'] ?? '');
-    $id_genero = (int) ($_POST['genero'] ?? 0);
     $documento = trim($_POST['doc'] ?? '');
     $fecha_nacimiento = trim($_POST['fnacimiento'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['contraseña'] ?? '';
-    $id_localidad = (int) ($_POST['localidad'] ?? 0);
     $id_rol = 2;
 
 
@@ -32,18 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Debe ingresar un email válido.";
     } elseif (empty($password) || strlen($password) < 6) {
         $error = "La contraseña debe tener al menos 6 caracteres.";
-    } elseif (empty($sexo)) {
-    $error = "Debe seleccionar un sexo.";
-    } elseif ($datosAux->usuarioExiste($usuario)) {
-    $error = "El nombre de usuario ya está registrado. Elegí otro.";
-    } elseif ($id_genero <= 0) {
-        $error = "Debe seleccionar un género.";
-    } elseif ($id_tipo_doc <= 0) {
-        $error = "Debe seleccionar un tipo de documento.";
     } elseif (empty($documento)) {
         $error = "Debe ingresar un número de documento.";
-    } elseif ($id_localidad <= 0) {
-        $error = "Debe seleccionar una localidad.";
     } elseif (empty($fecha_nacimiento)) {
         $error = "La fecha de nacimiento es obligatoria.";
         } else {
@@ -59,21 +40,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-            if (!preg_match('/^[0-9]{7,8}$/', $documento)) {
-                $error = "El DNI debe tener entre 7 y 8 dígitos numéricos.";
-        } else {
-            $error = "Tipo de documento no reconocido.";
-    
-        }
 
+        if (!preg_match('/^[0-9]{7,8}$/', $documento)) {
+            $error = "El DNI debe tener entre 7 y 8 dígitos numéricos.";
+        }
+    
     
     if (empty($error)) {
         $registrar = new CSignUp();
         $resultado = $registrar->RegistrarUsuario(
             $nombre, $apellido, $documento,
-            $id_localidad, $id_genero,
-            $fecha_nacimiento, $email, $usuario, $password, $id_rol, $registrado
+            $fecha_nacimiento, $email, $usuario, 
+            $password, $id_rol
         );
+
 
         if ($resultado === true) {
         header("Location: /Mateados/views/login/login.php");
@@ -84,5 +64,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require_once __DIR__ . '/../views/registro/logup.php';
+require_once __DIR__ . '/../views/registro/signup.php';
 ?>

@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="/Mateados/views/css/style.css" />
 
   <title>Registrarse | SkyWay</title>
 </head>
@@ -13,7 +13,7 @@
   <div class="container" id="container">
     <div class="forms-container">
       <div class="forms" id="forms">
-        <!-- REGISTRO -->
+
         <form action="" id="sign-up" class="form-register" method="POST">
           <h2>Registrarse</h2>
           <p>¿Ya tenés cuenta? <a href="/../PAGolimpiadas/vista/iniciosesion/login.php" id="link-sign-up">Inicia sesión</a></p>
@@ -32,32 +32,6 @@
             <label for="usuario">Usuario</label>
             <input id="usuario" type="text" placeholder="Ingrese nombre de usuario" name="usuario">
           </div>
-
-          <div class="input-container">
-            <label for="genero">Género</label>
-       <select name="genero" id="genero" required>
-  <option value="" disabled selected>Seleccione su género</option>
-  <?php foreach ($generos as $gen): ?>
-    <option value="<?= htmlspecialchars($gen['Id_Genero']) ?>"
-      <?= (isset($_POST['genero']) && $_POST['genero'] == $gen['Id_Genero']) ? 'selected' : '' ?>>
-      <?= htmlspecialchars($gen['Genero']) ?>
-    </option>
-  <?php endforeach; ?>
-</select>
-        </div>
-
-    <div class="input-container">
-      <label for="localidad">Ubicacion</label>
-      <select name="localidad" id="localidad" required>
-        <option value="" disabled selected>Seleccione su ubicación</option>
-        <?php foreach ($ubicaciones as $ubicacion): ?>
-          <option value="<?= htmlspecialchars($ubicacion['Id_Localidad']) ?>"
-            <?= (isset($_POST['localidad']) && $_POST['localidad'] == $ubicacion['Id_Localidad']) ? 'selected' : '' ?>>
-            <?= htmlspecialchars($ubicacion['Ubicacion']) ?>
-          </option>
-        <?php endforeach; ?>
-      </select>
-    </div>
 
           <div class="input-container">
             <label for="doc">Número de documento</label>

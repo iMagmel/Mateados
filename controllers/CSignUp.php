@@ -9,14 +9,11 @@ class CSignUp {
                 $nombre,
                 $apellido,
                 $documento,
-                $id_genero,
                 $fecha_recibida,
                 $email,
                 $usuario,
                 $password_hash,
                 $id_rol,
-                $id_pais,
-                $registrado
     ) {
         $modelo = new MSignUp(); 
 
@@ -24,14 +21,11 @@ class CSignUp {
                 $nombre,
                 $apellido,
                 $documento,
-                $id_genero,
                 $fecha_recibida,
                 $email,
                 $usuario,
                 $password_hash,
-                $id_rol,
-                $id_pais,
-                $registrado
+                $id_rol
                     );
 
         return $result;
