@@ -1,3 +1,16 @@
+<?php
+require_once __DIR__ . '/../../session/SesionUsuario.php'; 
+use Sesion\SesionUsuario;
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+$usuario = SesionUsuario::getUsuario();
+$nombre   = SesionUsuario::getNombre();  
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,13 +35,20 @@
     </div>
 
     <div class="right-icons">
-      <div class="user-menu">
-        <i class='bx bx-user'></i>
-        <div class="dropdown">
-          <a href="#">Iniciar sesión</a>
-          <a href="#">Registrarme</a>
+            <div class="user-menu">
+                <i class='bx bx-user'></i>
+                <div class="dropdown">
+                          <?php if ($usuario): ?>
+          <span>Hola, <?= htmlspecialchars($usuario) ?></span>
+          <a href="/Mateados/controllers/CLogOut.php">Cerrar sesión</a>
+      <?php else: ?>
+          <a href="/Mateados/views/login/login.php">Iniciar sesión</a>
+          <a href="/Mateados/controllers/CVSignUp.php">Registrarme</a>
+      <?php endif; ?>
+
+                </div>
+            </div>
         </div>
-      </div>
       <i class='bx bx-cart'></i>
       
       <button class="menu-toggle" id="menu-toggle">
@@ -52,40 +72,40 @@
 
   <nav class="desktop-nav">
   <ul class="nav-list">
-    <li><a href="../pagprincipal/index.html">Inicio</a></li>
+    <li><a href="../pagprincipal/index.php">Inicio</a></li>
     <li class="has-submenu">
       <a href="#">Productos</a>
       <ul class="submenu">
         <li>
-          <a href="../productos/mates.html">Mates</a>
+          <a href="../productos/mates.php">Mates</a>
           <ul class="submenu-items">
-            <li><a href="../productos/mates.html">Calabaza</a></li>
-            <li><a href="../productos/mates.html">Imperial</a></li>
-            <li><a href="../productos/mates.html">Torpedo</a></li>
-            <li><a href="../productos/mates.html">Camionero</a></li>
-            <li><a href="../productos/mates.html">Algarrobo</a></li>
+            <li><a href="../productos/mates.php">Calabaza</a></li>
+            <li><a href="../productos/mates.php">Imperial</a></li>
+            <li><a href="../productos/mates.php">Torpedo</a></li>
+            <li><a href="../productos/mates.php">Camionero</a></li>
+            <li><a href="../productos/mates.php">Algarrobo</a></li>
           </ul>
         </li>
         <li>
-          <a href="../productos/termos.html">Termos</a>
+          <a href="../productos/termos.php">Termos</a>
           <ul class="submenu-items">
-            <li><a href="../productos/termos.html">Metálico</a></li>
+            <li><a href="../productos/termos.php">Metálico</a></li>
           </ul>
         </li>
         <li>
-          <a href="../productos/yerbas.html">Yerba</a>
+          <a href="../productos/yerbas.php">Yerba</a>
           <ul class="submenu-items">
-            <li><a href="../productos/yerbas.html">Sara</a></li>
-            <li><a href="../productos/yerbas.html">Baldo</a></li>
-            <li><a href="../productos/yerbas.html">Canarias</a></li>
-            <li><a href="../productos/yerbas.html">Amanda</a></li>
-            <li><a href="../productos/yerbas.html">Playadito</a></li>
+            <li><a href="../productos/yerbas.php">Sara</a></li>
+            <li><a href="../productos/yerbas.php">Baldo</a></li>
+            <li><a href="../productos/yerbas.php">Canarias</a></li>
+            <li><a href="../productos/yerbas.php">Amanda</a></li>
+            <li><a href="../productos/yerbas.php">Playadito</a></li>
           </ul>
         </li>
         <li>
-          <a href="../productos/materas.html">Materas</a>
+          <a href="../productos/materas.php">Materas</a>
           <ul class="submenu-items">
-            <li><a href="../productos/materas.html">Cuero</a></li>
+            <li><a href="../productos/materas.php">Cuero</a></li>
           </ul>
         </li>
       </ul>
@@ -98,33 +118,29 @@
 
 <main class="productos-container">
 <aside class="categorias">
-  <h2>Mates</h2>
-  <ul>
-    <li><a href="../productos/mates.html">Calabaza</a></li>
-    <li><a href="../productos/mates.html">Imperial</a></li>
-    <li><a href="../productos/mates.html">Torpedo</a></li>
-    <li><a href="../productos/mates.html">Camionero</a></li>
-    <li><a href="../productos/mates.html">Algarrobo</a></li>
-  </ul>
-
-  <h2>Termos</h2>
-  <ul>
-    <li><a href="../productos/termos.html">Metálico</a></li>
-  </ul>
 
   <h2>Yerba</h2>
   <ul>
-    <li><a href="../productos/yerbas.html">Sara</a></li>
-    <li><a href="../productos/yerbas.html">Baldo</a></li>
-    <li><a href="../productos/yerbas.html">Canarias</a></li>
-    <li><a href="../productos/yerbas.html">Amanda</a></li>
-    <li><a href="../productos/yerbas.html">Playadito</a></li>
-  </ul>../productos/yerbas.html
-
-  <h2>Materas</h2>
-  <ul>
-    <li><a href="../productos/materas.html">Cuero</a></li>
+    <li><a href="../productos/yerbas.php">Sara</a></li>
+    <li><a href="../productos/yerbas.php">Baldo</a></li>
+    <li><a href="../productos/yerbas.php">Canarias</a></li>
+    <li><a href="../productos/yerbas.php">Amanda</a></li>
+    <li><a href="../productos/yerbas.php">Playadito</a></li>
   </ul>
+
+  <h2>Mates</h2>
+  <ul>
+    <li><a href="../productos/mates.php">Calabaza</a></li>
+    <li><a href="../productos/mates.php">Imperial</a></li>
+    <li><a href="../productos/mates.php">Torpedo</a></li>
+    <li><a href="../productos/mates.php">Camionero</a></li>
+    <li><a href="../productos/mates.php">Algarrobo</a></li>
+  </ul>
+  <h2>Termos</h2>
+  <ul>
+    <li><a href="../productos/termos.php">Metálico</a></li>
+  </ul>
+
 <div class="descuentos">
   <div class="descuento">
     <img src="/views/img/calabaza1.jpg" alt="Descuento 1">
