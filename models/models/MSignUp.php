@@ -17,7 +17,7 @@ class MSignUp{
             $encriptacion = new Encriptar();
             $password_hash = $encriptacion->SHA256($usuario, $contrasena);
 
-            $sql = "EXEC SP_RegistroUsuario ?, ?, ?, ?, ?, ?, ?, ?, @registrado OUTPUT";
+            $sql = "EXEC SP_RegistroUsuario ?, ?, ?, ?, ?, ?, ?, ?";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
