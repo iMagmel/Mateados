@@ -106,7 +106,54 @@ header {
   display: block;
 }
 
+.user-info-logged {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 8px 0;
+  box-shadow: 0 2px 8px rgba(91,117,83,0.08);
+}
 
+.user-avatar {
+  background: #5b7553;
+  color: #fff;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 2px 8px rgba(91,117,83,0.12);
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-name {
+  font-weight: 700;
+  color: #5b7553;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.logout-link {
+  color: #3e503b;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.logout-link:hover {
+  color: #ffdd57;
+  text-decoration: underline;
+}
 hr {
   border: none;
   border-top: 1px solid rgba(255,255,255,0.3);

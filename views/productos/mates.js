@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   });
 
- 
   function activarVerMas(botonId, contenedorId) {
     const btn = document.getElementById(botonId);
     const contenedor = document.getElementById(contenedorId);
@@ -36,13 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
   activarVerMas("btn-ver-mas-camionero", "camionero-cards");
   activarVerMas("btn-ver-mas-algarrobo", "algarrobo-cards");
   activarVerMas("btn-ver-mas-materas", "materas-cards");
-
   activarVerMas("btn-ver-mas-termos", "termos-cards");
-
   activarVerMas("btn-ver-mas-sara", "sara-cards");
-  
   activarVerMas("btn-ver-mas-baldo", "baldo-cards");
-
   activarVerMas("btn-ver-mas-canarias", "canarias-cards");
 
   const portal = document.getElementById("portal");
@@ -56,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let productoActual = null;
 
   function abrirPortal(titulo, descripcion, imagenes) {
-   
     portalSlider.innerHTML = "";
 
     imagenes.forEach((img, i) => {
@@ -112,68 +106,157 @@ document.addEventListener("DOMContentLoaded", () => {
   btnAgregarCarrito.addEventListener("click", () => {
     if (productoActual) {
       carrito.push(productoActual);
-      alert(`${productoActual.titulo} agregado al carrito`);
+      mostrarAlertaCompra(`${productoActual.titulo} agregado al carrito`);
       portal.classList.remove("show"); 
     }
   });
 
-carritoIcon.addEventListener("click", () => {
-  portalProductos.innerHTML = "";
+  // Alerta personalizada con la misma colorimetría que login/registro
+  function mostrarAlertaCompra(mensaje, callback) {
+    const alertaExistente = document.getElementById('custom-alert');
+    if (alertaExistente) alertaExistente.remove();
 
-  if (carrito.length === 0) {
-    portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
-  } else {
-    carrito.forEach((item, index) => {
-      const div = document.createElement("div");
-      div.classList.add("portal-item");
-      div.innerHTML = `
-  <img src="${item.imagenes[0]}" alt="${item.titulo}">
-  <div class="texto">
-    <h4>${item.titulo}</h4>
-    <p>${item.descripcion}</p>
-  </div>
-  <div class="portal-botones">
-    <button class="comprar" data-index="${index}">Comprar</button>
-    <button class="eliminar" data-index="${index}">Eliminar</button>
-  </div>
-`;
-      portalProductos.appendChild(div);
-    });
+    const alerta = document.createElement('div');
+    alerta.id = 'custom-alert';
+    alerta.innerHTML = `
+      <style>
+        #custom-alert {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(59, 80, 59, 0.18);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+        }
+        #custom-alert-box {
+          background: #fff;
+          border-radius: 16px;
+          padding: 32px 24px;
+          box-shadow: 0 4px 24px rgba(91,117,83,0.18);
+          text-align: center;
+          font-family: 'Roboto', sans-serif;
+          min-width: 300px;
+          border: 2px solid #c5d6b0;
+        }
+        #custom-alert-title {
+          color: #5b7553;
+          font-size: 1.5rem;
+          margin-bottom: 8px;
+          font-weight: 700;
+          border-bottom: 2px solid #ffdd57;
+          display: inline-block;
+          padding-bottom: 4px;
+        }
+        #custom-alert-btn {
+          margin-top: 18px;
+          background: #5b7553;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          padding: 10px 28px;
+          font-size: 1rem;
+          cursor: pointer;
+          font-weight: 500;
+          transition: background 0.3s;
+        }
+        #custom-alert-btn:hover {
+          background: #3e503b;
+        }
+      </style>
+      <div id='custom-alert-box'>
+        <div id='custom-alert-title'>¡Aviso!</div>
+        <div style='color:#333; margin-top:8px;'>${mensaje}</div>
+        <button id='custom-alert-btn'>Continuar</button>
+      </div>
+    `;
+    document.body.appendChild(alerta);
 
-    portalProductos.querySelectorAll(".eliminar").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const i = btn.dataset.index;
-        carrito.splice(i, 1); 
-        btn.closest(".portal-item").remove(); 
+    document.getElementById('custom-alert-btn').onclick = function() {
+      alerta.remove();
+      if (typeof callback === 'function') callback();
+    };
+  }
 
-        if (carrito.length === 0) {
-          portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
+  portalProductos.addEventListener("click", function(e) {
+    if (e.target.classList.contains("comprar")) {
+      if (typeof usuarioLogueado !== "undefined" && !usuarioLogueado) {
+        mostrarAlertaCompra("Debes iniciar sesión para comprar.", function() {
+          window.location.href = "/Mateados/views/login/login.php";
+        });
+        return;
+      }
+      const btn = e.target;
+      const i = btn.dataset.index;
+
+    fetch('/Mateados/controllers/CVenta.php', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        cantidad: 1,
+        producto: carrito[i].titulo 
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if(data.success){
+          mostrarAlertaCompra(`¡Gracias por tu compra de ${carrito[i].titulo}!<br>Tu pedido ya está listo para retirar en el local. El pago se realiza al momento del retiro.`, function() {
+            carrito.splice(i, 1); 
+            btn.closest(".portal-item").remove();
+            if (carrito.length === 0) {
+              portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
+            }
+          });
+        } else {
+          mostrarAlertaCompra('Error al registrar la compra');
         }
       });
-    });
-  }
-  portalProductos.querySelectorAll(".comprar").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const i = btn.dataset.index;
-    alert(`¡Gracias por tu compra de ${carrito[i].titulo}!`);
-    carrito.splice(i, 1); 
-    btn.closest(".portal-item").remove();
+    }
+  });
+
+  carritoIcon.addEventListener("click", () => {
+    portalProductos.innerHTML = "";
 
     if (carrito.length === 0) {
       portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
+    } else {
+      carrito.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.classList.add("portal-item");
+        div.innerHTML = `
+          <img src="${item.imagenes[0]}" alt="${item.titulo}">
+          <div class="texto">
+            <h4>${item.titulo}</h4>
+            <p>${item.descripcion}</p>
+          </div>
+          <div class="portal-botones">
+            <button class="comprar" data-index="${index}">Comprar</button>
+            <button class="eliminar" data-index="${index}">Eliminar</button>
+          </div>
+        `;
+        portalProductos.appendChild(div);
+      });
+
+      // Botón eliminar
+      portalProductos.querySelectorAll(".eliminar").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const i = btn.dataset.index;
+          carrito.splice(i, 1); 
+          btn.closest(".portal-item").remove(); 
+
+          if (carrito.length === 0) {
+            portalProductos.innerHTML = "<p>Tu carrito está vacío</p>";
+          }
+        });
+      });
     }
+    portalCarrito.classList.add("show");
   });
-});
-
-  portalCarrito.classList.add("show");
-});
-
 
   portalCerrarCarrito.addEventListener("click", () => {
     portalCarrito.classList.remove("show");
   });
 
-  
   const productosLink = document.querySelector(".desktop-nav .has-submenu > a");
   const submenu = document.querySelector(".desktop-nav .has-submenu .submenu");
 

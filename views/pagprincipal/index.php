@@ -38,12 +38,19 @@ $nombre   = SesionUsuario::getNombre();
             <div class="user-menu">
                 <i class='bx bx-user'></i>
                 <div class="dropdown">
-                          <?php if ($usuario): ?>
-          <span>Hola, <?= htmlspecialchars($usuario) ?></span>
-          <a href="/Mateados/controllers/CLogOut.php">Cerrar sesión</a>
+      <?php if ($usuario): ?>
+        <div class="user-info-logged">
+          <div class="user-avatar">
+            <i class='bx bx-user'></i>
+          </div>
+          <div class="user-details">
+            <span class="user-name">Hola, <?= htmlspecialchars($usuario) ?></span>
+            <a href="/Mateados/controllers/CLogOut.php" class="logout-link">Cerrar sesión</a>
+          </div>
+        </div>
       <?php else: ?>
-          <a href="/Mateados/views/login/login.php">Iniciar sesión</a>
-          <a href="/Mateados/controllers/CVSignUp.php">Registrarme</a>
+        <a href="/Mateados/views/login/login.php">Iniciar sesión</a>
+        <a href="/Mateados/controllers/CVSignUp.php">Registrarme</a>
       <?php endif; ?>
 
                 </div>
@@ -87,30 +94,30 @@ $nombre   = SesionUsuario::getNombre();
           </ul>
         </li>
         <li>
-          <a href="../productos/termos.php">Termos</a>
+          <a href="../productos/mates.php">Termos</a>
           <ul class="submenu-items">
-            <li><a href="../productos/termos.php">Metálico</a></li>
+            <li><a href="../productos/mates.php">Metálico</a></li>
           </ul>
         </li>
         <li>
-          <a href="../productos/yerba.php">Yerba</a>
+          <a href="../productos/mates.php">Yerba</a>
           <ul class="submenu-items">
-            <li><a href="../productos/yerbas.php">Sara</a></li>
-            <li><a href="../productos/yerbas.php">Baldo</a></li>
-            <li><a href="../productos/yerbas.php">Canarias</a></li>
-            <li><a href="../productos/yerbas.php">Amanda</a></li>
-            <li><a href="../productos/yerbas.php">Playadito</a></li>
+            <li><a href="../productos/mates.php">Sara</a></li>
+            <li><a href="../productos/mates.php">Baldo</a></li>
+            <li><a href="../productos/mates.php">Canarias</a></li>
+            <li><a href="../productos/mates.php">Amanda</a></li>
+            <li><a href="../productos/mates.php">Playadito</a></li>
           </ul>
         </li>
         <li>
-          <a href="../productos/materas.php">Materas</a>
+          <a href="../productos/mates.php">Materas</a>
           <ul class="submenu-items">
-            <li><a href="../productos/materas.php">Cuero</a></li>
+            <li><a href="../productos/mates.php">Cuero</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#">Contacto</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ul>
 </nav>
 
@@ -299,7 +306,7 @@ $nombre   = SesionUsuario::getNombre();
 <footer class="footer">
   <div class="footer-container">
 
-    <div class="footer-section">
+    <div class="footer-section" id="contacto">
       <h3>Contacto</h3>
       <p>Email: contacto@mateados.com</p>
       <p>Dirección: Av. Mate 123, Buenos Aires</p>

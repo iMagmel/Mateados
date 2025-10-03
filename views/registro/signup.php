@@ -16,7 +16,7 @@
 
         <form action="" id="sign-up" class="form-register" method="POST">
           <h2>Registrarse</h2>
-          <p>¿Ya tenés cuenta? <a href="/../PAGolimpiadas/vista/iniciosesion/login.php" id="link-sign-up">Inicia sesión</a></p>
+          <p>¿Ya tenés cuenta? <a href="/Mateados/views/login/login.php" id="link-sign-up">Inicia sesión</a></p>
 
           <div class="input-container">
             <label for="nombre">Nombre</label>

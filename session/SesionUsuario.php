@@ -1,4 +1,5 @@
 <?php
+
 namespace Sesion;
 
 class SesionUsuario {
@@ -38,6 +39,9 @@ class SesionUsuario {
     }
 
     public static function getIdUsuario() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         return self::$idUsuario ?? $_SESSION["Id_Usuario"] ?? null;
     }
 
@@ -53,3 +57,4 @@ class SesionUsuario {
         return self::$idRol ?? $_SESSION["Id_Rol"] ?? null;
     }
 }
+?>
