@@ -6,10 +6,14 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once __DIR__ . '/../../controllers/CListarUsuarios.php';
 require_once __DIR__ . '/../../controllers/CListarProductos.php';
 require_once __DIR__ . '/../../controllers/CListarVentas.php';
+require_once __DIR__ . '/../../controllers/CListarClientes.php';
 
+$controladorClientes = new CListarClientes();
 $controlador = new CListarUsuarios();
 $controladorp = new CListarProductos();
 $controller = new CListarVentas();
+
+$listaclientes = $controladorClientes->ObtenerClientes();
 $listausuarios = $controlador->ObtenerUsuarios();
 $listaproductos = $controladorp->ObtenerProductos();
 $ventas = $controller->ObtenerVentas();
@@ -17,9 +21,7 @@ $ventas = $controller->ObtenerVentas();
 $totalVentas = 0;
 $totalPedidos = count($ventas);
 
-foreach ($ventas as $v) {
-    $totalVentas += $v['Total'];
-}
+    $totalVentas += 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,15 +92,14 @@ foreach ($ventas as $v) {
             <div class="head"><h3>Pedidos Recientes</h3></div>
             <table>
                 <thead>
-                    <tr><th>Usuario</th><th>Fecha</th><th>Cantidad</th><th>Total</th></tr>
+                    <tr><th>Fecha</th><th>Cantidad</th><th>Producto</th></tr>
                 </thead>
                 <tbody>
                     <?php foreach ($ventas as $venta): ?>
                         <tr>
-                            <td><?= htmlspecialchars($venta['NombreCliente']) ?></td>
                             <td><?= date("d-m-Y", strtotime($venta['FechaVenta'])) ?></td>
                             <td><?= $venta['Cantidad'] ?></td>
-                            <td>$<?= $venta['Total'] ?></td>
+                            <td><?= $venta['Producto'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -128,7 +129,7 @@ foreach ($ventas as $v) {
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre</th>
+                        <th>fecha de venta</th>
                         <th>Precio</th>
                         <th>Stock</th>
                         <th></th>
@@ -145,8 +146,7 @@ foreach ($ventas as $v) {
                                 <td>
                                 </td>
                                 <td>
-                                    <i class='bx bx-edit icon-btn' data-action="editar" data-id="<?php echo $producto['IdProducto'] ?? ''; ?>" title="Editar"></i>
-                                    <i class='bx bx-trash icon-btn' data-action="eliminar" data-id="<?php echo $producto['Id_Producto'] ?? ''; ?>" title="Eliminar"></i>
+                                    <i class='bx bx-trash icon-btn' data-action="eliminar" data-tipo="producto" data-id="<?php echo $producto['Id_Producto'] ?? ''; ?>" title="Eliminar"></i>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -245,9 +245,7 @@ foreach ($ventas as $v) {
                                 <td><?php echo htmlspecialchars($usuario['Ultimo_Login'] ?? ''); ?></td>
                                 <td><?php echo htmlspecialchars($usuario['Id_Rol'] ?? ''); ?></td>
                                 <td>
-                                    <i class='bx bx-show icon-btn' data-action="ver" data-id="<?php echo $usuario['Id_Usuario']; ?>"></i>
-                                    <i class='bx bx-edit icon-btn' data-action="editar" data-id="<?php echo $usuario['Id_Usuario']; ?>"></i>
-                                    <i class='bx bx-trash icon-btn' data-action="eliminar" data-id="<?php echo $usuario['Id_Usuario']; ?>"></i>
+                                    <i class='bx bx-trash icon-btn' data-action="eliminar" data-tipo="usuario" data-id="<?php echo $usuario['Id_Usuario']; ?>"></i>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -259,6 +257,54 @@ foreach ($ventas as $v) {
         </div>
     </div>
 </section>
+
+<!-- Clientes -->
+			<section id="clientes" class="section">
+    <div class="head-title">
+        <div class="left"><h1>Clientes</h1></div>
+        <a href="#" class="btn-download"><i class='bx bxs-user-plus'></i><span class="text">Agregar Cliente</span></a>
+    </div>
+
+    <div class="table-data">
+        <div class="order">
+            <div class="head"><h3>Lista de Clientes</h3></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>DNI</th>
+                        <th>Email</th>
+                        <th>País</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($listaclientes)): ?>
+                        <?php foreach ($listaclientes as $cliente): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($cliente['Id_Cliente'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($cliente['Nombre'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($cliente['Apellido'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($cliente['DNI'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($cliente['Email'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($cliente['Id_Pais'] ?? '') ?></td>
+                                <td>
+                                    <i class='bx bx-trash icon-btn' data-action="eliminar" data-tipo="cliente" data-id="<?= $cliente['Id_Cliente'] ?>"></i>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr><td colspan="9" style="text-align:center;">No se encontraron clientes.</td></tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+	<!-- CONTENT -->
 
     <!-- Modal genérico -->
 <div id="modal" class="modal">

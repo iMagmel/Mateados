@@ -93,7 +93,7 @@ function initIconButtons() {
     });
 }
 
-// ---- MODAL ----
+// ------------------- MODAL DINÁMICO -------------------
 const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modal-title');
 const modalForm = document.getElementById('modal-form');
@@ -104,16 +104,17 @@ document.querySelectorAll('.btn-download').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const section = btn.closest('.section').id;
-
+        modal.dataset.section = section;
         modal.style.display = 'block';
 
+        modalForm.innerHTML = '';
         switch(section) {
             case 'usuarios':
                 modalTitle.textContent = 'Agregar Usuario';
                 modalForm.innerHTML = `
-                    <input type="text" placeholder="Nombre completo" required>
-                    <input type="email" placeholder="Email" required>
-                    <select>
+                    <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <select name="rol" required>
                         <option value="cliente">Cliente</option>
                         <option value="admin">Administrador</option>
                     </select>
@@ -124,9 +125,10 @@ document.querySelectorAll('.btn-download').forEach(btn => {
             case 'clientes':
                 modalTitle.textContent = 'Agregar Cliente';
                 modalForm.innerHTML = `
-                    <input type="text" placeholder="Nombre completo" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="tel" placeholder="Teléfono" required>
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="text" name="apellido" placeholder="Apellido" required>
+                    <input type="text" name="dni" placeholder="DNI" required>
+                    <input type="date" name="fnacimiento" required>
                     <button type="submit">Guardar</button>
                 `;
                 break;
@@ -134,9 +136,9 @@ document.querySelectorAll('.btn-download').forEach(btn => {
             case 'tienda':
                 modalTitle.textContent = 'Agregar Producto';
                 modalForm.innerHTML = `
-                    <input type="text" placeholder="Nombre del producto" required>
-                    <input type="number" placeholder="Precio" required>
-                    <input type="number" placeholder="Stock" required>
+                    <input type="text" name="nombre" placeholder="Nombre del producto" required>
+                    <input type="number" name="precio" placeholder="Precio" required>
+                    <input type="number" name="stock" placeholder="Stock" required>
                     <button type="submit">Guardar</button>
                 `;
                 break;
@@ -152,13 +154,119 @@ document.querySelectorAll('.btn-download').forEach(btn => {
 closeBtn.onclick = () => { modal.style.display = 'none'; }
 window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
 
-// Manejo del formulario (por ahora solo muestra en consola)
-modalForm.addEventListener('submit', (e) => {
+// ------------------- ENVÍO DEL FORMULARIO -------------------
+modalForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    alert("Datos enviados (simulado)");
+    const formData = new FormData(modalForm);
+
+    const section = modal.dataset.section;
+    let actionUrl = '';
+    if (section === 'tienda') actionUrl = '/Mateados/controllers/CAltaProducto.php';
+    else if (section === 'clientes') actionUrl = '/Mateados/controllers/CAltaCliente.php';
+    else if (section === 'usuarios') actionUrl = '/Mateados/controllers/CAltaUsuario.php';
+
+    try {
+        const res = await fetch(actionUrl, {
+            method: 'POST',
+            body: formData
+        });
+
+        const text = await res.text();
+        console.log("Respuesta PHP cruda:", text);
+
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (err) {
+            console.error("Error parseando JSON:", err);
+            alert("Error en respuesta del servidor");
+            return;
+        }
+
+        if (data.status === 'success') {
+            alert(data.message);
+            location.reload();
+        } else {
+            alert("Error: " + data.message);
+        }
+
+    } catch (err) {
+        console.error("Fetch error:", err);
+        alert("Hubo un problema al enviar los datos");
+    }
+
     modal.style.display = 'none';
 });
 
+// ---- LOG OUT ----
+document.querySelectorAll('.logout').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!confirm("¿Seguro que quieres cerrar sesión?")) return;
+        window.location.href = "/Mateados/controllers/CLogout.php";
+    });
+});
 
-// Inicializar botones al cargar la página
+// ------------------- BORRAR------------------
+function initIconButtons() {
+    const iconButtons = document.querySelectorAll('.icon-btn');
+
+    iconButtons.forEach(btn => {
+        btn.addEventListener('click', async function() {
+            const action = btn.getAttribute('data-action');
+            const id = btn.getAttribute('data-id');
+            const tipo = btn.getAttribute('data-tipo');
+
+            if (action === 'eliminar' && id && tipo) {
+                if (!confirm(`¿Seguro que quieres eliminar este ${tipo}?`)) return;
+
+                const config = {
+                    producto: { url: '/Mateados/controllers/CBajaProducto.php', param: 'idProducto' },
+                    usuario: { url: '/Mateados/controllers/CBajaUsuario.php', param: 'idusuario' },
+                    cliente: { url: '/Mateados/controllers/CBajaCliente.php', param: 'idcliente' }
+                };
+
+                const target = config[tipo];
+                if (!target) {
+                    alert("Tipo no soportado");
+                    return;
+                }
+
+                try {
+                    const res = await fetch(target.url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `${target.param}=${encodeURIComponent(id)}`
+                    });
+
+                    const text = await res.text();
+                    console.log("Respuesta cruda del servidor:", text);
+
+                    let data;
+                    try {
+                        data = JSON.parse(text);
+                    } catch (err) {
+                        console.error("Error parseando JSON:", err);
+                        alert("Error en respuesta del servidor");
+                        return;
+                    }
+
+                    if (data.status === 'success') {
+                        alert(data.message);
+                        btn.closest('tr').remove();
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+
+                } catch (err) {
+                    console.error("Fetch error:", err);
+                    alert("Hubo un problema al eliminar el " + tipo);
+                }
+            }
+        });
+    });
+}
+
+
+
 window.addEventListener('DOMContentLoaded', initIconButtons);

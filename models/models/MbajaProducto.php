@@ -1,22 +1,18 @@
 <?php
-
 require_once __DIR__ . '/../Connection/ConnectionBD.php';
 
-class MbajaProducto{
+class MBajaProducto {
     private $conn;
 
     public function __construct() {
         $this->conn = ConnectionBD::Connection();
     }
 
-    public function BorrarProducto($idproducto){
-
-        $sql = "EXEC SP_BajaProducto ?";
+    public function BorrarProducto($idProducto) {
+        $sql = "EXEC SP_bajaProducto ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$idproducto]); 
-        return $stmt;
-        
+
+        return $stmt->execute([$idProducto]);
     }
 }
-
 ?>

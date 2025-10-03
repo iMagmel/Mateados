@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="shape shape2"></div>
         <div class="shape shape3"></div>
         <section>
-            <h1>Bienvenido a tu <span>proxima ruta</span> <br> <br> <br> </h1>
+            <h1>Bienvenido a tu <span>próximo mate</span> <br> <br> <br> </h1>
             <img src="/images/banner.svg" alt="" />
         </section>
     </div>

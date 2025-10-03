@@ -1,83 +1,141 @@
--- PAISES
-INSERT INTO Paises (Pais) VALUES 
-('Argentina'), ('Brasil'), ('Chile');
+USE [DBMateados];
+GO
 
--- PROVINCIAS
-INSERT INTO Provincias (Provincia, Id_Pais) VALUES 
-('Buenos Aires', 1),
-('Córdoba', 1),
-('São Paulo', 2);
+-- ==============================
+-- 1. Categorías
+-- ==============================
+INSERT INTO Categorias (Categoria) VALUES
+('Bebidas'),
+('Snacks'),
+('Limpieza');
 
--- PARTIDOS
-INSERT INTO Partidos (Partido, Id_Provincia) VALUES 
-('La Plata', 1),
-('Villa María', 2),
-('Campinas', 3);
+-- ==============================
+-- 2. Clientes (y guardamos IDs generados)
+-- ==============================
+DECLARE @Cliente1 INT, @Cliente2 INT, @Cliente3 INT;
 
--- LOCALIDADES
-INSERT INTO Localidades (Localidad, Id_Partido) VALUES 
-('Tolosa', 1),
-('Centro', 2),
-('Barão Geraldo', 3);
+INSERT INTO Clientes (Nombre, Apellido, DNI, Fecha_Nacimiento)
+VALUES ('Juan', 'Pérez', '12345678', '1990-05-10');
+SET @Cliente1 = SCOPE_IDENTITY();
 
--- CATEGORIAS
-INSERT INTO Categorias (Categoria) VALUES 
-('Bebidas'), ('Snacks'), ('Limpieza');
+INSERT INTO Clientes (Nombre, Apellido, DNI, Fecha_Nacimiento)
+VALUES ('María', 'González', '23456789', '1985-11-20');
+SET @Cliente2 = SCOPE_IDENTITY();
 
--- CLIENTES
-INSERT INTO Clientes (Nombre, Apellido, DNI, Id_Pais, Id_Genero, Fecha_Nacimiento) VALUES 
-('Juan', 'Pérez', '12345678', 1, 1, '1990-01-15'),
-('María', 'Gómez', '23456789', 1, 2, '1985-06-20'),
-('Carlos', 'Silva', '34567890', 2, 1, '1992-09-10');
+INSERT INTO Clientes (Nombre, Apellido, DNI, Fecha_Nacimiento)
+VALUES ('Carlos', 'Ramírez', '34567890', '2000-01-15');
+SET @Cliente3 = SCOPE_IDENTITY();
 
--- ROLES
-INSERT INTO Roles (Rol) VALUES 
-('Admin'), ('Empleado'), ('Cliente');
+-- ==============================
+-- 3. Roles
+-- ==============================
+INSERT INTO Roles (Rol) VALUES
+('Administrador'),
+('Empleado'),
+('Cliente');
 
--- USUARIOS
-INSERT INTO Usuarios (Email, NUsuario, Contrasena, FechaAlta, Ultimo_Login, Id_Rol, Email_Confirmado, CodigoVerificacion, CodigoRecuperacion, Id_Cliente) VALUES 
-('juanp@example.com', 'juanp', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', GETDATE(), NULL, 3, 1, NULL, NULL, 1),
-('mariag@example.com', 'mariag', '7d254f36c2f45c32b54f84a676b91594e43b3aa4f435b6bff7c7b6512632a0e0', GETDATE(), NULL, 3, 1, NULL, NULL, 2),
-('admin@example.com', 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', GETDATE(), GETDATE(), 1, 1, NULL, NULL, NULL);
+-- ==============================
+-- 4. Proveedores
+-- ==============================
+DECLARE @Prov1 INT, @Prov2 INT, @Prov3 INT;
 
--- PROVEEDORES
-INSERT INTO Proveedores (Nombre, Apellido, Domicilio, Telefono, Email) VALUES 
-('Ana', 'Lopez', 'Av. Siempreviva 123', 1112345678, 'ana@proveedor.com'),
-('Luis', 'Martinez', 'Calle Falsa 456', 1123456789, 'luis@proveedor.com'),
-('Sonia', 'Diaz', 'Diagonal 74', 1134567890, 'sonia@proveedor.com');
+INSERT INTO Proveedores (Nombre, Apellido, Domicilio, Telefono, Email)
+VALUES ('Pedro', 'Martínez', 'Av. Siempre Viva 123', 1123456789, 'pedro@proveedor.com');
+SET @Prov1 = SCOPE_IDENTITY();
 
--- PRODUCTOS
-INSERT INTO Productos (NombreProducto, Id_Categoria, PrecioUnitario) VALUES 
-('Coca-Cola 1.5L', 1, 500),
-('Papas Lays', 2, 300),
-('Lavandina', 3, 250);
+INSERT INTO Proveedores (Nombre, Apellido, Domicilio, Telefono, Email)
+VALUES ('Lucía', 'Fernández', 'Calle Falsa 456', 1198765432, 'lucia@proveedor.com');
+SET @Prov2 = SCOPE_IDENTITY();
 
--- LOTES
-INSERT INTO Lotes (Fecha_Ingreso, Valor) VALUES 
-(GETDATE(), 1000),
-(GETDATE(), 1500),
-(GETDATE(), 1200);
+INSERT INTO Proveedores (Nombre, Apellido, Domicilio, Telefono, Email)
+VALUES ('Jorge', 'Sosa', 'Boulevard Central 789', 1132145678, 'jorge@proveedor.com');
+SET @Prov3 = SCOPE_IDENTITY();
 
--- COMPRAS
-INSERT INTO Compras (FechaCompra, PrecioUnitario, PrecioTotal, Cantidad, Id_Proveedor, Id_Producto, Id_Lote) VALUES 
-(GETDATE(), 400, 4000, 10, 1, 1, 1),
-(GETDATE(), 250, 2500, 10, 2, 2, 2),
-(GETDATE(), 200, 2000, 10, 3, 3, 3);
+-- ==============================
+-- 5. Productos
+-- ==============================
+DECLARE @Prod1 INT, @Prod2 INT, @Prod3 INT;
 
--- VENTAS
-INSERT INTO Ventas (FechaVenta, Cantidad, PrecioUnitario, SubTotal, Total, Id_Cliente) VALUES 
-(GETDATE(), 2, 500, 1000, 1000, 1),
-(GETDATE(), 3, 300, 900, 900, 2),
-(GETDATE(), 1, 250, 250, 250, 3);
+INSERT INTO Productos (NombreProducto, Id_Categoria, PrecioUnitario)
+VALUES ('Coca-Cola 1.5L', 1, 500);
+SET @Prod1 = SCOPE_IDENTITY();
 
--- HISTORIAL CONTRASEÑAS
-INSERT INTO Historial_Contraseñas (Id_Usuario, Fecha_Cambio, Password) VALUES 
-(1, GETDATE(), '12345678'),
-(2, GETDATE(), '87654321'),
-(3, GETDATE(), 'admin123');
+INSERT INTO Productos (NombreProducto, Id_Categoria, PrecioUnitario)
+VALUES ('Papas Fritas 200g', 2, 300);
+SET @Prod2 = SCOPE_IDENTITY();
 
--- HISTORIAL COMPRAS
-INSERT INTO Historial_Compras (Id_Compra, Id_Usuario, Fecha_Compra) VALUES 
-(1, 1, GETDATE()),
-(2, 2, GETDATE()),
-(3, 3, GETDATE());
+INSERT INTO Productos (NombreProducto, Id_Categoria, PrecioUnitario)
+VALUES ('Detergente 500ml', 3, 250);
+SET @Prod3 = SCOPE_IDENTITY();
+
+-- ==============================
+-- 6. Lotes
+-- ==============================
+DECLARE @Lote1 INT, @Lote2 INT, @Lote3 INT;
+
+INSERT INTO Lotes (Fecha_Ingreso, Valor) VALUES (GETDATE(), 1000);
+SET @Lote1 = SCOPE_IDENTITY();
+
+INSERT INTO Lotes (Fecha_Ingreso, Valor) VALUES (DATEADD(DAY, -10, GETDATE()), 2000);
+SET @Lote2 = SCOPE_IDENTITY();
+
+INSERT INTO Lotes (Fecha_Ingreso, Valor) VALUES (DATEADD(DAY, -20, GETDATE()), 1500);
+SET @Lote3 = SCOPE_IDENTITY();
+
+-- ==============================
+-- 7. Compras
+-- ==============================
+DECLARE @Compra1 INT, @Compra2 INT, @Compra3 INT;
+
+INSERT INTO Compras (FechaCompra, PrecioUnitario, PrecioTotal, Cantidad, Id_Proveedor, Id_Producto, Id_Lote)
+VALUES (GETDATE(), 400, 4000, 10, @Prov1, @Prod1, @Lote1);
+SET @Compra1 = SCOPE_IDENTITY();
+
+INSERT INTO Compras (FechaCompra, PrecioUnitario, PrecioTotal, Cantidad, Id_Proveedor, Id_Producto, Id_Lote)
+VALUES (GETDATE(), 200, 2000, 10, @Prov2, @Prod2, @Lote2);
+SET @Compra2 = SCOPE_IDENTITY();
+
+INSERT INTO Compras (FechaCompra, PrecioUnitario, PrecioTotal, Cantidad, Id_Proveedor, Id_Producto, Id_Lote)
+VALUES (GETDATE(), 150, 1500, 10, @Prov3, @Prod3, @Lote3);
+SET @Compra3 = SCOPE_IDENTITY();
+
+-- ==============================
+-- 8. Usuarios (ligados a clientes y roles)
+-- ==============================
+DECLARE @User1 INT, @User2 INT, @User3 INT;
+
+INSERT INTO Usuarios (Email, NUsuario, Contrasena, FechaAlta, Ultimo_Login, Id_Rol, Id_Cliente)
+VALUES ('admin@mateados.com', 'admin', '123456', GETDATE(), NULL, 1, @Cliente1);
+SET @User1 = SCOPE_IDENTITY();
+
+INSERT INTO Usuarios (Email, NUsuario, Contrasena, FechaAlta, Ultimo_Login, Id_Rol, Id_Cliente)
+VALUES ('empleado@mateados.com', 'empleado', '123456', GETDATE(), NULL, 2, @Cliente2);
+SET @User2 = SCOPE_IDENTITY();
+
+INSERT INTO Usuarios (Email, NUsuario, Contrasena, FechaAlta, Ultimo_Login, Id_Rol, Id_Cliente)
+VALUES ('cliente@mateados.com', 'cliente', '123456', GETDATE(), NULL, 3, @Cliente3);
+SET @User3 = SCOPE_IDENTITY();
+
+-- ==============================
+-- 9. Historial Compras
+-- ==============================
+INSERT INTO Historial_Compras (Id_Compra, Id_Usuario, Fecha_Compra)
+VALUES (@Compra1, @User1, GETDATE());
+
+INSERT INTO Historial_Compras (Id_Compra, Id_Usuario, Fecha_Compra)
+VALUES (@Compra2, @User2, GETDATE());
+
+INSERT INTO Historial_Compras (Id_Compra, Id_Usuario, Fecha_Compra)
+VALUES (@Compra3, @User3, GETDATE());
+
+-- ==============================
+-- 10. Ventas
+-- ==============================
+INSERT INTO Ventas (FechaVenta, Cantidad, Id_Usuario, Producto)
+VALUES (GETDATE(), 2, @User1, 'Coca-Cola 1.5L');
+
+INSERT INTO Ventas (FechaVenta, Cantidad, Id_Usuario, Producto)
+VALUES (GETDATE(), 5, @User2, 'Papas Fritas 200g');
+
+INSERT INTO Ventas (FechaVenta, Cantidad, Id_Usuario, Producto)
+VALUES (GETDATE(), 1, @User3, 'Detergente 500ml');

@@ -77,7 +77,7 @@
       <div class="shape shape2"></div>
       <div class="shape shape3"></div>
       <section>
-        <h1>Bienvenido a tu <span>próxima ruta</span> <br> <br> </h1>
+        <h1>Bienvenido a tu <span>próximo mate</span> <br> <br> </h1>
         <p>Iniciá sesión para acceder a tu cuenta</p>
         <img src="/images/banner.svg" alt="">
       </section>

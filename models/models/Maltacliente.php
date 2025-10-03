@@ -1,19 +1,19 @@
 <?php
 
-require_once __DIR__ . '/ConnectionBD.php';
+require_once __DIR__ . '/../Connection/ConnectionBD.php';
 
-class MaltaProducto{
+class MAltaCliente{
     private $conn;
 
     public function __construct() {
         $this->conn = ConnectionBD::Connection();
     }
 
-    public function AgregarCliente($nombre, $apellido, $dni, $idpais, $idgenero, $fnacimiento){
+    public function AgregarCliente($nombre, $apellido, $dni, $fnacimiento){
 
-        $sql = "EXEC SP_AltaCliente ?, ?, ?, ?, ?, ?";
+        $sql = "EXEC SP_AltaCliente ?, ?, ?, ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$nombre, $apellido, $dni, $idpais, $idgenero, $fnacimiento]); 
+        $stmt->execute([$nombre, $apellido, $dni, $fnacimiento]); 
         return $stmt;
         
     }

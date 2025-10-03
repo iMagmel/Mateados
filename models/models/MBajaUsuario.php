@@ -1,22 +1,18 @@
 <?php
-
 require_once __DIR__ . '/../Connection/ConnectionBD.php';
 
-class MbajaCliente{
+class MBajaUsuario {
     private $conn;
 
     public function __construct() {
         $this->conn = ConnectionBD::Connection();
     }
 
-    public function BorrarCliente($id_cliente){
-
-        $sql = "EXEC SP_bajaCliente ?";
+    public function BorrarUsuario($idusuario) {
+        $sql = "EXEC SP_BajaUsuario ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$id_cliente]); 
-        return $stmt;
-        
+
+        return $stmt->execute([$idusuario]);
     }
 }
-
 ?>
